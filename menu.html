@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>Menu Collection | Cave Senja - The Scholar's Archive</title>
+  <meta name="description" content="Jelajahi menu kurasi Cave Senja. Kopi artisan dan hidangan lezat dalam suasana Dark Academia yang menenangkan. Jakarta Selatan.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    bg: '#0F0E0E',
+                    'bg-alt': '#1A1614',
+                    surface: '#241E1B',
+                    accent: '#D4AF37',
+                    'accent-hover': '#B5952F',
+                    border: '#3E342F',
+                    text: {
+                        primary: '#EAE0D5',
+                        secondary: '#C5A086',
+                        muted: '#8E8B85'
+                    }
+                },
+                fontFamily: {
+                    display: ['Cinzel', 'serif'],
+                    heading: ['Cormorant Garamond', 'serif'],
+                    body: ['Crimson Pro', 'serif'],
+                }
+            }
+        }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    :root{
+      --bg0: #1C1714;
+      --bg1: #251E19;
+      --card: rgba(37, 30, 25, 0.95);
+      --text: #E8DFD4;
+      --muted: #9C8B7A;
+      --line: #4A3F35;
+      --copper: #C9A962; 
+      --radius: 4px; 
+      --container: 1120px;
+    }
+
+    /* ATMOSPHERIC OVERLAYS */
+    .texture-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; opacity: 0.04;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+    .vignette-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 49;
+        background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(28,23,20,0.7) 100%);
+    }
+
+    /* MENU CARD STYLES */
+    .card{
+      background: rgba(255,255,255,.02);
+      border:1px solid var(--line); border-radius: var(--radius);
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px); border-color: var(--copper);
+      box-shadow: 0 18px 44px rgba(0,0,0,.5);
+    }
+    
+    /* BUTTONS */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+      padding:.92rem 1.15rem; border-radius: 2px; border: 1px solid transparent;
+      cursor:pointer; transition: all .2s ease;
+      font-family: 'Cinzel', serif; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem;
+    }
+    .btn-primary{
+      background: linear-gradient(180deg, #D4B872 0%, #C9A962 100%);
+      color: #1C1714; font-weight: 700;
+      box-shadow: 0 4px 15px rgba(201,169,98,0.2);
+    }
+    .btn-primary:hover{ filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-ghost{
+      background: rgba(255,255,255,.02);
+      border-color: var(--line); color: var(--text);
+    }
+    .btn-sm{ padding:.6rem .85rem; font-size:.75rem; }
+    .iconbtn{
+      width: 32px; height: 32px; border-radius: 2px;
+      border:1px solid var(--line); background: rgba(255,255,255,.04);
+      color: var(--text); cursor:pointer; display: grid; place-items: center;
+      transition: all 0.2s;
+    }
+    .iconbtn:hover{ border-color: var(--copper); color: var(--copper); }
+    
+    /* --- NEW TABS STYLE (REVISI) --- */
+    .tabs-wrap {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
+      margin-bottom: 40px; border-bottom: 1px solid var(--line); padding-bottom: 20px;
+    }
+    .tab-btn {
+      background: transparent; border: none; color: var(--muted);
+      font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 0.1em;
+      padding: 10px 20px; cursor: pointer; position: relative;
+      transition: color 0.3s ease;
+    }
+    .tab-btn::after {
+      content: ''; position: absolute; bottom: -21px; left: 0; width: 100%; height: 2px;
+      background: var(--copper); transform: scaleX(0); transition: transform 0.3s ease;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--copper); }
+    .tab-btn.active::after { transform: scaleX(1); }
+
+    /* MENU GRID */
+    .container-custom { width:min(var(--container), calc(100% - 40px)); margin-inline:auto; }
+    .menu-grid{
+      margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .menu-card{ display:flex; flex-direction:column; min-height: 380px; position: relative; }
+    .menu-img{ height: 180px; width:100%; object-fit: cover; filter: sepia(0.6) contrast(0.95); transition: filter 0.5s; }
+    .menu-card:hover .menu-img { filter: sepia(0) contrast(1); }
+    
+    .menu-body{ padding: 16px; display:flex; flex-direction:column; gap: 12px; flex:1; }
+    .menu-name{ font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; line-height: 1.1; color: var(--text); }
+    .menu-cat{ 
+      font-size:.7rem; padding: .2rem .5rem; border:1px solid var(--line); 
+      color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; align-self: flex-start;
+    }
+    .menu-desc{ color: var(--muted); line-height: 1.6; font-size:.95rem; font-style: italic; }
+    .menu-price{ font-family: 'Cinzel', serif; font-weight: 700; color: var(--copper); font-size: 1.1rem; }
+
+    /* MODALS */
+    .modal-backdrop, .platform-backdrop{
+      position:fixed; inset:0; background: rgba(0,0,0,.8); backdrop-filter: blur(4px);
+      opacity:0; pointer-events:none; transition: opacity .2s; z-index:1000;
+    }
+    .modal, .platform-modal{
+      position:fixed; inset:0; display:grid; place-items:center; padding: 18px;
+      opacity:0; pointer-events:none; transition: opacity .2s; z-index:1001;
+    }
+    .open{ opacity:1; pointer-events:auto; }
+    .modal-shell, .platform-shell{
+      background: var(--bg1); border: 1px solid var(--copper);
+      box-shadow: 0 0 30px rgba(201,169,98,0.15); border-radius: 4px;
+      width: min(1000px, 100%); max-height: 90vh; overflow-y: auto; position: relative;
+    }
+    .modal-head{
+      background: var(--bg0); border-bottom: 1px solid var(--line);
+      padding: 16px; display:flex; justify-content:space-between; align-items:center;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .modal-title{ font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--copper); }
+
+    /* INPUTS */
+    input, select, textarea{
+      width: 100%; padding: .75rem; border-radius: 2px;
+      border: 1px solid var(--line); background: var(--bg1);
+      color: var(--text); outline:none; font-family: 'Crimson Pro', serif; font-size: 1.05rem;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--copper); }
+
+    /* FAB */
+    .fab-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px; }
+    .fab-btn {
+        width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        background: #1C1714; border: 1px solid #C9A962; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        cursor: pointer; transition: all 0.3s; color: #C9A962;
+    }
+    .fab-btn:hover { background: #C9A962; color: #1C1714; transform: scale(1.1); }
+    .fab-top { opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .fab-top.show { opacity: 1; pointer-events: auto; }
+
+    @media (max-width: 900px){ .menu-grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px){ .menu-grid{ grid-template-columns: 1fr; } }
+  </style>
+</head>
+
+<body class="font-body text-text-primary bg-bg antialiased overflow-x-hidden">
+
+  <div class="texture-overlay"></div>
+  <div class="vignette-overlay"></div>
+
+  <nav class="fixed w-full z-[100] bg-bg/95 backdrop-blur-sm border-b border-border shadow-lg transition-all duration-300">
+      <div class="max-w-6xl mx-auto px-6">
+          <div class="flex items-center justify-between h-24">
+              <div class="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
+                  <div class="w-10 h-10 rounded-full border border-accent flex items-center justify-center bg-bg-alt group-hover:bg-accent/10 transition-colors">
+                      <i class="fas fa-feather-alt text-accent"></i>
+                  </div>
+                  <div>
+                      <h1 class="font-display text-xl tracking-widest-xl text-accent uppercase">Cave Senja</h1>
+                      <p class="font-heading text-xs text-text-secondary tracking-widest uppercase">Est. MMXXIV</p>
+                  </div>
+              </div>
+              
+              <div class="hidden md:flex items-center space-x-12">
+                  <a href="index.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase">Beranda</a>
+                  <a href="tentang-kami.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase">Tentang</a>
+                  <a href="menu.html" class="font-display text-xs tracking-widest text-accent border-b border-accent transition-colors uppercase">Menu</a>
+                  <a href="blog.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase">Blog</a>
+                  <a href="galeri.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase">Gallery</a>
+                  
+                  <button class="relative group ml-4" id="navCheckout">
+                    <i class="fas fa-shopping-basket text-accent text-xl group-hover:text-white transition-colors"></i>
+                    <span class="absolute -top-2 -right-2 w-5 h-5 bg-accent-crimson text-white text-[10px] grid place-items-center rounded-full" id="cartBadge" style="display:none;">0</span>
+                  </button>
+              </div>
+
+              <div class="md:hidden flex items-center gap-6">
+                  <button class="relative group" onclick="document.getElementById('navCheckout').click()">
+                    <i class="fas fa-shopping-basket text-accent text-xl"></i>
+                    <span class="absolute -top-2 -right-2 w-5 h-5 bg-accent-crimson text-white text-[10px] grid place-items-center rounded-full" id="cartBadgeMobile" style="display:none;">0</span>
+                  </button>
+
+                  <button onclick="toggleMenu()" class="text-accent text-xl cursor-pointer hover:text-white transition">
+                      <i class="fas fa-bars"></i>
+                  </button>
+              </div>
+          </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden bg-bg-alt border-t border-border absolute w-full left-0">
+          <div class="px-6 py-4 space-y-4 text-center">
+              <a href="index.html" class="block font-display text-xs tracking-widest hover:text-accent uppercase py-2">Beranda</a>
+              <a href="tentang-kami.html" class="block font-display text-xs tracking-widest hover:text-accent uppercase py-2">Tentang</a>
+              <a href="menu.html" class="block font-display text-xs tracking-widest text-accent uppercase py-2">Menu</a>
+              <a href="blog.html" class="block font-display text-xs tracking-widest hover:text-accent uppercase py-2">Blog</a>
+              <a href="galeri.html" class="block font-display text-xs tracking-widest hover:text-accent uppercase py-2">Gallery</a>
+          </div>
+      </div>
+  </nav>
+
+  <main id="menu" class="relative z-10 pt-24 pb-20">
+    
+    <header class="py-16 text-center border-b border-border bg-bg-alt/30 relative overflow-hidden">
+        <div class="absolute inset-0 bg-brass-gradient opacity-5"></div>
+        <div class="container-custom relative z-10">
+            <span class="font-display text-xs text-accent tracking-[0.3em] uppercase block mb-3">Volume III</span>
+            <h1 class="font-heading text-5xl md:text-6xl text-text-primary mb-4">The Menu Collection</h1>
+            <p class="font-body text-text-secondary text-lg italic max-w-2xl mx-auto">
+                "Kurasi rasa untuk menemani diskusi berat maupun lamunan senja Anda."
+            </p>
+        </div>
+    </header>
+
+    <section class="container-custom mt-12">
+      <div class="tabs-wrap" id="categoryTabs">
+        <button class="tab-btn active" data-cat="all">Semua</button>
+        <button class="tab-btn" data-cat="coffee">Coffee</button>
+        <button class="tab-btn" data-cat="non_coffee">Non Coffee</button>
+        <button class="tab-btn" data-cat="pastry">Pastry</button>
+        <button class="tab-btn" data-cat="dessert">Dessert</button>
+        <button class="tab-btn" data-cat="main_course">Main Course</button>
+      </div>
+    </section>
+
+    <section class="container-custom">
+      <div class="menu-grid" id="menuGrid">
+        </div>
+      
+      <div class="mt-12 p-6 border border-border bg-bg-alt/50 rounded-sm">
+        <h3 class="font-heading text-2xl text-accent mb-4">Panduan Pemesanan</h3>
+        <ol class="list-decimal list-inside text-text-secondary space-y-2 font-body">
+            <li>Pilih menu melalui Tab kategori di atas, lalu klik <b>Pesan</b>.</li>
+            <li>Klik icon keranjang di pojok kanan atas untuk melihat ringkasan.</li>
+            <li>Pilih <b>Order On The Spot</b> untuk mendapatkan Nota Digital (isi form & pilih pembayaran).</li>
+            <li>Atau pilih <b>Aplikasi Ojol</b> untuk dialihkan ke halaman merchant kami.</li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="platform-backdrop" id="platformBackdrop"></div>
+  <div class="platform-modal" id="platformModal">
+    <div class="platform-shell">
+      <div class="modal-head">
+        <div class="modal-title">Pilih Metode Pesan</div>
+        <button class="iconbtn" id="closePlatform">✕</button>
+      </div>
+      <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a class="card p-4 flex flex-col gap-2 hover:border-accent group" href="#" id="pfShopee" target="_blank">
+            <div class="text-3xl">🛵</div>
+            <div class="font-display text-lg text-text-primary group-hover:text-accent">ShopeeFood</div>
+          </a>
+          <a class="card p-4 flex flex-col gap-2 hover:border-accent group" href="#" id="pfGrab" target="_blank">
+            <div class="text-3xl">🚗</div>
+            <div class="font-display text-lg text-text-primary group-hover:text-accent">GrabFood</div>
+          </a>
+          <a class="card p-4 flex flex-col gap-2 hover:border-accent group" href="#" id="pfGojek" target="_blank">
+            <div class="text-3xl">🏍️</div>
+            <div class="font-display text-lg text-text-primary group-hover:text-accent">GoFood</div>
+          </a>
+          <button class="card p-4 flex flex-col gap-2 border-accent bg-accent/10 hover:bg-accent/20 text-left" id="pfOTS">
+            <div class="text-3xl">☕</div>
+            <div class="font-display text-lg text-accent">Order On The Spot</div>
+          </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal" id="modal">
+    <div class="modal-shell">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title">Konfirmasi Pesanan</div>
+          <div class="text-text-muted text-sm">Cave Senja Digital Invoice</div>
+        </div>
+        <button class="iconbtn" id="closeModal">✕</button>
+      </div>
+
+      <div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="flex flex-col gap-4">
+            <div class="p-4 border border-border bg-bg-alt/50">
+                <h4 class="font-display text-accent mb-4 border-b border-border pb-2">Data Tamu</h4>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted uppercase">Nama</label>
+                        <input id="custName" type="text" placeholder="Nama Anda" />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted uppercase">WhatsApp</label>
+                        <input id="custPhone" type="tel" placeholder="08..." />
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted uppercase">Layanan</label>
+                        <select id="fulfillment">
+                            <option value="dinein">Dine-in (Makan di tempat)</option>
+                            <option value="takeaway">Take Away (Bungkus)</option>
+                            <option value="delivery">Delivery (Kirim)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-xs text-muted uppercase">Waktu</label>
+                        <input id="pickupTime" type="time" />
+                    </div>
+                </div>
+                <div class="flex flex-col gap-1 mt-4" id="addrField" style="display:none;">
+                    <label class="text-xs text-muted uppercase">Alamat Lengkap</label>
+                    <textarea id="custAddress" rows="2"></textarea>
+                </div>
+                <div class="flex flex-col gap-1 mt-4">
+                    <label class="text-xs text-muted uppercase">Catatan Khusus</label>
+                    <textarea id="notes" rows="2" placeholder="Less sugar, extra hot..."></textarea>
+                </div>
+            </div>
+
+            <div class="p-4 border border-border bg-bg-alt/50">
+                <h4 class="font-display text-accent mb-4 border-b border-border pb-2">Metode Pembayaran</h4>
+                <div class="grid grid-cols-3 gap-2 text-sm">
+                    <label class="cursor-pointer border border-border p-2 text-center hover:border-accent has-[:checked]:border-accent has-[:checked]:bg-accent/10">
+                        <input type="radio" name="pay" value="bri" checked class="hidden"> BRI
+                    </label>
+                    <label class="cursor-pointer border border-border p-2 text-center hover:border-accent has-[:checked]:border-accent has-[:checked]:bg-accent/10">
+                        <input type="radio" name="pay" value="bca" class="hidden"> BCA
+                    </label>
+                    <label class="cursor-pointer border border-border p-2 text-center hover:border-accent has-[:checked]:border-accent has-[:checked]:bg-accent/10">
+                        <input type="radio" name="pay" value="qris" class="hidden"> QRIS
+                    </label>
+                    <label class="cursor-pointer border border-border p-2 text-center hover:border-accent has-[:checked]:border-accent has-[:checked]:bg-accent/10">
+                        <input type="radio" name="pay" value="cash" class="hidden"> Tunai
+                    </label>
+                </div>
+                <div id="payInfo" class="mt-3 text-sm text-text-muted italic bg-black/20 p-2"></div>
+            </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+            <div class="p-4 border border-border bg-bg-alt/50">
+                <h4 class="font-display text-accent mb-4 border-b border-border pb-2">Keranjang</h4>
+                <div id="cartList" class="flex flex-col gap-3 max-h-[200px] overflow-y-auto pr-2"></div>
+                
+                <div class="mt-4 pt-4 border-t border-border space-y-1 text-sm font-body">
+                    <div class="flex justify-between text-muted"><span>Subtotal</span><span id="sumSubtotal">Rp0</span></div>
+                    <div class="flex justify-between text-muted"><span>Service (5%)</span><span id="sumService">Rp0</span></div>
+                    <div class="flex justify-between text-muted"><span>Tax (10%)</span><span id="sumTax">Rp0</span></div>
+                    <div class="flex justify-between text-accent font-bold text-lg mt-2 pt-2 border-t border-border/50">
+                        <span>TOTAL</span><span id="sumGrand">Rp0</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 mt-6">
+                    <button class="btn btn-ghost flex-1" id="clearCart">Hapus</button>
+                    <button class="btn btn-primary flex-1" id="submitOrder">Buat Pesanan</button>
+                </div>
+            </div>
+
+            <div class="p-4 border border-border bg-[#15110f]">
+                <h4 class="font-display text-accent mb-2">Nota Sementara</h4>
+                <div id="invoicePreview" class="font-mono text-xs leading-relaxed text-text-muted p-2 border border-border/30"></div>
+                <p class="text-[10px] text-text-muted mt-2">*Salin nota ini dan kirim ke WhatsApp Kasir.</p>
+                <button class="btn btn-ghost btn-sm w-full mt-2" id="copyInvoice">Salin Nota</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<footer class="bg-bg-alt border-t border-border mt-10 md:mt-20 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
+
+    <div class="max-w-6xl mx-auto px-6 pt-16 pb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
+            
+            <div class="space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full border border-accent flex items-center justify-center bg-bg">
+                        <i class="fas fa-feather-alt text-accent"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-display text-lg tracking-widest text-accent uppercase">Cave Senja</h2>
+                        <p class="font-heading text-xs text-text-muted tracking-widest uppercase">The Scholar's Archive</p>
+                    </div>
+                </div>
+                <p class="font-body text-text-secondary text-sm leading-relaxed italic">
+                    "Ruang kontemplasi di mana aroma kopi artisan bertemu dengan ketenangan perpustakaan klasik."
+                </p>
+                <div class="flex gap-4 pt-2">
+                    <a href="https://wa.me/6281234567890" aria-label="Instagram" class="w-8 h-8 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-accent hover:border-accent transition-all duration-300"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/6281234567890" aria-label="Twitter" class="w-8 h-8 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-accent hover:border-accent transition-all duration-300"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/6281234567890" aria-label="WhatsApp" class="w-8 h-8 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-accent hover:border-accent transition-all duration-300"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="font-display text-accent text-sm tracking-widest uppercase mb-6 border-b border-border pb-2 inline-block">Eksplorasi</h3>
+                <ul class="space-y-3 font-heading text-text-primary/80">
+                    <li><a href="index.html" class="hover:text-accent hover:pl-2 transition-all duration-300 flex items-center gap-2"><span class="text-[10px] opacity-50">✦</span> Beranda</a></li>
+                    <li><a href="menu.html" class="hover:text-accent hover:pl-2 transition-all duration-300 flex items-center gap-2"><span class="text-[10px] opacity-50">✦</span> Menu Koleksi</a></li>
+                    <li><a href="tentang-kami.html" class="hover:text-accent hover:pl-2 transition-all duration-300 flex items-center gap-2"><span class="text-[10px] opacity-50">✦</span> Tentang Kami</a></li>
+                    <li><a href="blog.html" class="hover:text-accent hover:pl-2 transition-all duration-300 flex items-center gap-2"><span class="text-[10px] opacity-50">✦</span> Jurnal & Blog</a></li>
+                    <li><a href="galeri.html" class="hover:text-accent hover:pl-2 transition-all duration-300 flex items-center gap-2"><span class="text-[10px] opacity-50">✦</span> Galeri Arsip</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-display text-accent text-sm tracking-widest uppercase mb-6 border-b border-border pb-2 inline-block">Lokasi Arsip</h3>
+                <ul class="space-y-4 font-body text-text-secondary text-sm">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt mt-1 text-accent/70"></i>
+                        <span>Jalan Kopi No. 10,<br>Jakarta Selatan, DKI Jakarta</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-phone-alt text-accent/70"></i>
+                        <a href="https://wa.me/6281234567890" class="hover:text-accent transition-colors">+62 812 3456 7890</a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-accent/70"></i>
+                        <a href="mailto:halo@cavesenja.com" class="hover:text-accent transition-colors">halo@cavesenja.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-display text-accent text-sm tracking-widest uppercase mb-6 border-b border-border pb-2 inline-block">Jam Operasional</h3>
+                <ul class="space-y-3 font-heading text-text-primary/80">
+                    <li class="flex justify-between border-b border-border/50 pb-2 border-dashed">
+                        <span>Senin - Kamis</span>
+                        <span class="text-accent">08:00 - 22:00</span>
+                    </li>
+                    <li class="flex justify-between border-b border-border/50 pb-2 border-dashed">
+                        <span>Jumat - Sabtu</span>
+                        <span class="text-accent">08:00 - 23:00</span>
+                    </li>
+                    <li class="flex justify-between">
+                        <span>Minggu</span>
+                        <span class="text-accent">09:00 - 21:00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-border pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-body text-text-muted text-center md:text-left">
+            <p>© 2024 Cave Senja. All Rights Reserved.</p>
+
+            <p class="font-display tracking-widest opacity-50 mt-2 md:mt-0">EST. MMXXIV</p>
+        </div>
+    </div>
+</footer>
+
+  <div class="fab-container">
+      <div class="fab-btn fab-top" id="backToTop" onclick="backToTop()"><i class="fas fa-chevron-up"></i></div>
+      <a href="https://wa.me/6281234567890?text=Halo%20Admin" target="_blank" class="fab-btn" style="color: #25D366; border-color: #25D366;"><i class="fab fa-whatsapp text-2xl"></i></a>
+  </div>
+
+  <script>
+    // --- KONFIGURASI UMUM ---
+    const WA_NUMBER = "6281234567890"; 
+    const PLATFORM_LINKS = {
+      shopeefood: "https://shopee.co.id/",
+      grabfood: "https://food.grab.com/",
+      gofood: "https://gofood.co.id/",
+    };
+
+    // --- DATA MENU (REVISI: Kategori disesuaikan dengan Tabs) ---
+    // Kategori Baru: coffee, non_coffee, pastry, dessert, main_course
+    const MENU = [
+      // COFFEE
+      {id:"m1", name:"Cave Signature Latte", cat:"coffee", price:35000, img:"https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80", desc:"Espresso blend house dengan susu steam dan hint aren."},
+      {id:"m2", name:"Noir Americano", cat:"coffee", price:28000, img:"https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80", desc:"Hitam pekat, body tebal, acidity rendah."},
+      {id:"m3", name:"Vanilla Twilight", cat:"coffee", price:38000, img:"https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80", desc:"Latte lembut dengan sirup vanilla premium."},
+      
+      // NON COFFEE
+      {id:"m4", name:"Artisan Matcha", cat:"non_coffee", price:40000, img:"https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=600&q=80", desc:"Pure matcha Uji, susu segar, tekstur creamy."},
+      {id:"m5", name:"Royal Chocolate", cat:"non_coffee", price:38000, img:"https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600&q=80", desc:"Coklat Belgia panas/dingin yang rich."},
+      
+      // PASTRY
+      {id:"r1", name:"Almond Croissant", cat:"pastry", price:32000, img:"https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80", desc:"Flaky pastry dengan isian almond paste manis."},
+      {id:"r4", name:"Cinnamon Roll", cat:"pastry", price:28000, img:"https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=600&q=80", desc:"Roti gulung kayu manis dengan glaze cream cheese."},
+
+      // DESSERT
+      {id:"r3", name:"Choco Walnut Cookie", cat:"dessert", price:25000, img:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80", desc:"Cookie tebal, soft-baked dengan potongan walnut."},
+
+      // MAIN COURSE (Termasuk Makanan Ringan/Berat)
+      {id:"r2", name:"Truffle Fries", cat:"main_course", price:35000, img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80", desc:"Kentang goreng, minyak truffle, parmesan."},
+      {id:"b1", name:"Truffle Carbonara", cat:"main_course", price:65000, img:"https://images.unsplash.com/photo-1626844131082-256783844137?auto=format&fit=crop&w=600&q=80", desc:"Spaghetti creamy, beef bacon, aroma truffle."},
+      {id:"b2", name:"Wagyu Rice Bowl", cat:"main_course", price:75000, img:"https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=600&q=80", desc:"Nasi hangat, irisan wagyu tender, telur onsen."},
+      {id:"b3", name:"Classic Burger", cat:"main_course", price:55000, img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80", desc:"Bun brioche, patty juicy, keju cheddar, sayur segar."},
+      {id:"b4", name:"Aglio Olio", cat:"main_course", price:45000, img:"https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80", desc:"Pasta simpel, bawang putih, cabai kering, udang."},
+    ];
+
+    // --- LOGIC HELPER ---
+    const rupiah = (n) => new Intl.NumberFormat("id-ID", { style:"currency", currency:"IDR", maximumFractionDigits:0 }).format(n);
+    let cart = {};
+    let currentCategory = 'all';
+
+    function addToCart(id, qty=1){
+      cart[id] = cart[id] || {id, qty:0};
+      cart[id].qty += qty;
+      syncUI();
+    }
+    
+    function getCartItems(){
+      return Object.values(cart).map(c => {
+        const item = MENU.find(m => m.id === c.id);
+        return item ? {...item, qty:c.qty} : null;
+      }).filter(Boolean);
+    }
+
+    function calcTotals(){
+      const items = getCartItems();
+      const sub = items.reduce((a,i) => a + (i.price*i.qty), 0);
+      const svc = Math.round(sub * 0.05);
+      const tax = Math.round(sub * 0.10);
+      return { sub, svc, tax, total: sub+svc+tax };
+    }
+
+    // --- RENDER MENU TABS LOGIC (Updated) ---
+    const menuGrid = document.getElementById("menuGrid");
+
+    function renderMenu(){
+      // Filter berdasarkan kategori tab aktif
+      let items = MENU.filter(m => {
+        return (currentCategory === 'all') ? true : (m.cat === currentCategory);
+      });
+
+      if(items.length === 0){
+        menuGrid.innerHTML = `<div class="col-span-full text-center py-20 text-muted italic">
+          <i class="fas fa-coffee text-4xl mb-3 opacity-50"></i><br>
+          Menu untuk kategori ini belum tersedia.
+        </div>`;
+        return;
+      }
+
+      // Render Flat Grid (Elegan, tanpa sekat)
+      let html = items.map(item => createCardHtml(item)).join("");
+      menuGrid.innerHTML = html;
+      attachCardEvents();
+    }
+
+    function createCardHtml(m){
+      return `
+        <article class="menu-card card" data-id="${m.id}">
+          <div class="relative overflow-hidden">
+            <img class="menu-img" src="${m.img}" alt="${m.name}" loading="lazy"/>
+            <div class="absolute top-2 right-2 bg-bg text-accent text-[10px] px-2 py-1 font-display tracking-widest border border-accent uppercase">
+              ${m.cat.replace('_',' ')}
+            </div>
+          </div>
+          <div class="menu-body">
+            <div class="flex justify-between items-start">
+              <h4 class="menu-name text-text-primary">${m.name}</h4>
+            </div>
+            <p class="menu-desc">${m.desc}</p>
+            <div class="mt-auto flex justify-between items-center pt-4 border-t border-border/50">
+              <span class="menu-price">${rupiah(m.price)}</span>
+              <button class="btn btn-primary btn-sm" data-action="order">
+                Pesan
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function attachCardEvents(){
+      document.querySelectorAll("[data-action='order']").forEach(btn => {
+        btn.addEventListener("click", e => {
+          const id = e.target.closest(".menu-card").dataset.id;
+          addToCart(id);
+          openPlatformModal();
+        });
+      });
+    }
+
+    // --- EVENT LISTENERS TABS ---
+    const tabs = document.querySelectorAll('.tab-btn');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all
+        tabs.forEach(t => t.classList.remove('active'));
+        // Add active to clicked
+        tab.classList.add('active');
+        // Update category state
+        currentCategory = tab.dataset.cat;
+        renderMenu();
+      });
+    });
+
+
+    // --- MODAL LOGIC (Standard) ---
+    const pfModal = document.getElementById("platformModal");
+    const pfBack = document.getElementById("platformBackdrop");
+    const mainModal = document.getElementById("modal");
+    const mainBack = document.getElementById("modalBackdrop");
+
+    function openPlatformModal(){ 
+      pfModal.classList.add("open"); pfBack.classList.add("open"); 
+    }
+    function closePlatformModal(){ 
+      pfModal.classList.remove("open"); pfBack.classList.remove("open"); 
+    }
+    
+    function openMainModal(){ 
+      renderCart(); renderInvoice();
+      mainModal.classList.add("open"); mainBack.classList.add("open"); 
+    }
+    function closeMainModal(){ 
+      mainModal.classList.remove("open"); mainBack.classList.remove("open"); 
+    }
+
+    document.getElementById("closePlatform").onclick = closePlatformModal;
+    pfBack.onclick = closePlatformModal;
+    document.getElementById("closeModal").onclick = closeMainModal;
+    mainBack.onclick = closeMainModal;
+
+    document.getElementById("navCheckout").onclick = (e) => {
+      e.preventDefault();
+      if(getCartItems().length === 0) alert("Keranjang kosong.");
+      else openPlatformModal();
+    };
+
+    document.getElementById("pfOTS").onclick = () => {
+      closePlatformModal();
+      openMainModal();
+    };
+
+    // Link Ojol
+    document.getElementById("pfShopee").href = PLATFORM_LINKS.shopeefood;
+    document.getElementById("pfGrab").href = PLATFORM_LINKS.grabfood;
+    document.getElementById("pfGojek").href = PLATFORM_LINKS.gofood;
+
+    // --- CART & INVOICE RENDER ---
+    const cartList = document.getElementById("cartList");
+    const invoicePreview = document.getElementById("invoicePreview");
+
+    function renderCart(){
+      const items = getCartItems();
+      if(items.length===0) {
+        cartList.innerHTML = `<div class="text-sm text-muted">Kosong.</div>`; 
+        return;
+      }
+      cartList.innerHTML = items.map(i => `
+        <div class="flex justify-between items-center bg-black/20 p-2 rounded">
+          <div class="text-sm">
+            <div class="font-bold text-cream">${i.name}</div>
+            <div class="text-muted text-xs">${rupiah(i.price)} x ${i.qty}</div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="iconbtn w-6 h-6 text-xs" onclick="updateQty('${i.id}',-1)">-</button>
+            <span class="text-sm font-mono w-4 text-center">${i.qty}</span>
+            <button class="iconbtn w-6 h-6 text-xs" onclick="updateQty('${i.id}',1)">+</button>
+          </div>
+        </div>
+      `).join("");
+      
+      const t = calcTotals();
+      document.getElementById("sumSubtotal").innerText = rupiah(t.sub);
+      document.getElementById("sumService").innerText = rupiah(t.svc);
+      document.getElementById("sumTax").innerText = rupiah(t.tax);
+      document.getElementById("sumGrand").innerText = rupiah(t.total);
+    }
+
+    window.updateQty = (id, delta) => {
+      if(cart[id]) cart[id].qty += delta;
+      if(cart[id].qty <= 0) delete cart[id];
+      syncUI();
+    };
+
+    document.getElementById("clearCart").onclick = () => {
+      if(confirm("Hapus semua?")) { cart={}; syncUI(); closeMainModal(); }
+    };
+
+    // --- NOTA LOGIC ---
+    function renderInvoice(){
+      const items = getCartItems();
+      const t = calcTotals();
+      const name = document.getElementById("custName").value || "-";
+      const pay = document.querySelector('input[name="pay"]:checked').value.toUpperCase();
+      const fulfil = document.getElementById("fulfillment").value;
+      
+      let txt = `CAVE SENJA - ORDER\n`;
+      txt += `Date: ${new Date().toLocaleString('id-ID')}\n`;
+      txt += `Name: ${name}\n`;
+      txt += `Type: ${fulfil.toUpperCase()} | Pay: ${pay}\n`;
+      txt += `------------------------\n`;
+      items.forEach(i => {
+        txt += `${i.name} x${i.qty} = ${rupiah(i.price*i.qty)}\n`;
+      });
+      txt += `------------------------\n`;
+      txt += `TOTAL: ${rupiah(t.total)}\n`;
+      
+      invoicePreview.innerText = txt;
+    }
+
+    function syncUI(){
+      const count = getCartItems().reduce((a,b)=>a+b.qty,0);
+      const badge = document.getElementById("cartBadge");
+      const badgeMobile = document.getElementById("cartBadgeMobile");
+      
+      badge.innerText = count;
+      badge.style.display = count > 0 ? "grid" : "none";
+      badgeMobile.innerText = count;
+      badgeMobile.style.display = count > 0 ? "grid" : "none";
+      
+      if(mainModal.classList.contains("open")) { renderCart(); renderInvoice(); }
+    }
+
+    ['custName', 'fulfillment', 'pickupTime', 'custAddress', 'notes'].forEach(id => {
+      document.getElementById(id).addEventListener('input', renderInvoice);
+    });
+    document.querySelectorAll('input[name="pay"]').forEach(r => r.addEventListener('change', () => {
+      renderInvoice();
+      const info = document.getElementById("payInfo");
+      if(r.value==='bri') info.innerText = "BRI: 1234-5678-9000 (Cave Senja)";
+      if(r.value==='bca') info.innerText = "BCA: 098-765-4321 (Cave Senja)";
+      if(r.value==='qris') info.innerText = "Tunjukkan QRIS di kasir.";
+      if(r.value==='cash') info.innerText = "Bayar tunai di meja/kasir.";
+    }));
+    
+    document.getElementById("fulfillment").addEventListener("change", (e)=>{
+        document.getElementById("addrField").style.display = e.target.value === 'delivery' ? 'flex' : 'none';
+    });
+
+    document.getElementById("copyInvoice").onclick = () => {
+      navigator.clipboard.writeText(invoicePreview.innerText);
+      alert("Nota tersalin! Silakan paste di WhatsApp.");
+    };
+
+    document.getElementById("submitOrder").onclick = () => {
+       const name = document.getElementById("custName").value;
+       if(!name) { alert("Mohon isi nama Anda terlebih dahulu."); return; }
+       
+       const txt = encodeURIComponent(invoicePreview.innerText);
+       window.open(`https://wa.me/${WA_NUMBER}?text=${txt}`, '_blank');
+    };
+
+    // Scroll to Top & Navbar Logic
+    const topBtn = document.getElementById("backToTop");
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('nav');
+        if(window.scrollY > 300) topBtn.classList.add("show");
+        else topBtn.classList.remove("show");
+
+        if (window.scrollY > 50) {
+            navbar.classList.add('bg-bg', 'shadow-lg');
+            navbar.classList.remove('bg-bg/95');
+        } else {
+            navbar.classList.remove('bg-bg', 'shadow-lg');
+            navbar.classList.add('bg-bg/95');
+        }
+    });
+
+    function backToTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
+    function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+
+    // Initialize
+    renderMenu();
+  </script>
+</body>
+</html>
