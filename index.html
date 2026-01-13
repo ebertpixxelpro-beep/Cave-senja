@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title>Cave Senja | The Scholar's Archive - Kopi & Ruang Kontemplasi</title>
-    <meta name="description" content="Cave Senja adalah kedai kopi artisan dan ruang kontemplasi di Jakarta Selatan.">
+    <title>Cave Senja | The Scholar's Archive</title>
+    <meta name="description" content="Cave Senja: Kedai kopi artisan dan ruang kontemplasi di Jakarta Selatan.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script>
         tailwind.config = {
             theme: {
@@ -25,298 +25,240 @@
                         accent: '#D4AF37',
                         'accent-hover': '#B5952F',
                         border: '#3E342F',
-                        text: {
-                            primary: '#EAE0D5',
-                            secondary: '#C5A086',
-                            muted: '#8E8B85'
-                        }
+                        text: { primary: '#EAE0D5', secondary: '#C5A086', muted: '#8E8B85' }
                     },
                     fontFamily: {
                         display: ['Cinzel', 'serif'],
                         heading: ['Cormorant Garamond', 'serif'],
                         body: ['Crimson Pro', 'serif'],
                     },
-                    letterSpacing: {
-                        'widest-xl': '0.3em',
-                        'widest-2xl': '0.5em',
-                    },
                     backgroundImage: {
                         'brass-gradient': 'linear-gradient(135deg, #B5952F 0%, #D4AF37 50%, #8C7326 100%)',
-                    },
-                    boxShadow: {
-                        'engraved': 'inset 2px 2px 5px rgba(0,0,0,0.5), 1px 1px 0px rgba(255,255,255,0.1)',
-                        'glow': '0 0 20px rgba(212, 175, 55, 0.15)'
                     }
                 }
             }
         }
     </script>
 
-    <style type="text/css">
-        .texture-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
-        .vignette-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 49; background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(28,23,20,0.7) 100%); }
+    <style>
+        /* CSS Manual untuk performa visual */
+        .texture-overlay { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        .sepia-effect { filter: sepia(0.6) contrast(0.95) brightness(0.9); transition: all 0.5s ease; }
+        .sepia-effect:hover { filter: sepia(0) contrast(1.05) brightness(1); transform: scale(1.02); }
         .arch-top { border-radius: 40% 40% 0 0 / 20% 20% 0 0; }
-        .sepia-effect { filter: sepia(0.6) contrast(0.95) brightness(0.9); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; }
-        .sepia-effect:hover { filter: sepia(0.2) contrast(1.05) brightness(1); transform: scale(1.02); }
-        .drop-cap::first-letter { float: left; font-family: 'Cinzel', serif; font-size: 4.5rem; line-height: 0.8; margin-right: 0.75rem; margin-top: 0.25rem; color: #C9A962; text-shadow: 2px 2px 0px rgba(0,0,0,0.2); }
-        .ornate-divider { height: 1px; background: linear-gradient(90deg, transparent 0%, #4A3F35 20%, #C9A962 50%, #4A3F35 80%, transparent 100%); position: relative; margin: 3rem 0; }
-        .ornate-divider::after { content: "✶"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: #C9A962; background-color: #0F0E0E; padding: 0 15px; font-size: 1.2rem; }
-        section { content-visibility: auto; contain-intrinsic-size: 1px 500px; }
+        /* Memastikan konten tidak bergeser (CLS) */
+        img { max-width: 100%; height: auto; }
     </style>
 </head>
-<body id="home" class="font-body text-text-primary bg-bg antialiased overflow-x-hidden selection:bg-accent selection:text-bg">
+<body class="font-body text-text-primary bg-bg antialiased overflow-x-hidden selection:bg-accent selection:text-bg">
 
     <div class="texture-overlay"></div>
-    <div class="vignette-overlay"></div>
 
-    <nav class="fixed w-full z-40 bg-bg/95 backdrop-blur-sm border-b border-border transition-all duration-500">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center justify-between h-24">
-                <a href="#home" class="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
-                    <div class="relative">
-                        <div class="w-10 h-10 rounded-full border border-accent/50 flex items-center justify-center bg-bg-alt group-hover:border-accent transition-colors duration-500">
-                            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <div>
-                        <h1 class="font-display text-xl tracking-widest-xl text-accent uppercase group-hover:text-white transition-colors">Cave Senja</h1>
-                        <p class="font-heading text-[10px] text-white/80 tracking-[0.4em] uppercase">Est. MMXXIV</p>
-                    </div>
-                </a>
-                
-                <div class="hidden md:flex items-center space-x-12">
-                    <a href="#home" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Beranda</a>
-                    <a href="#about" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Tentang</a>
-                    <a href="#menu" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Menu</a>
-                    <a href="#blog" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Blog</a>
-                    <a href="#gallery" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Galeri</a>
+    <nav class="fixed w-full z-50 bg-bg/95 backdrop-blur-sm border-b border-border transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border border-accent/50 flex items-center justify-center bg-bg-alt">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
                 </div>
-
-                <button onclick="toggleMenu()" class="md:hidden text-accent p-2 hover:bg-white/5 rounded-full transition-colors" aria-label="Toggle Menu">
-                    <svg id="menu-icon-svg" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
+                <div>
+                    <h1 class="font-display text-lg tracking-widest text-accent uppercase">Cave Senja</h1>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="font-display text-xs tracking-widest hover:text-accent uppercase">Beranda</a>
+                <a href="#about" class="font-display text-xs tracking-widest hover:text-accent uppercase">Tentang</a>
+                <a href="#menu" class="font-display text-xs tracking-widest hover:text-accent uppercase">Menu</a>
+                <a href="#blog" class="font-display text-xs tracking-widest hover:text-accent uppercase">Blog</a>
+                <a href="#gallery" class="font-display text-xs tracking-widest hover:text-accent uppercase">Galeri</a>
             </div>
+
+            <button onclick="toggleMenu()" class="md:hidden text-accent p-2" aria-label="Menu">
+                <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
         </div>
 
-        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full bg-bg-alt/98 backdrop-blur-xl border-b border-accent/20 py-8 px-6 space-y-4 md:hidden shadow-2xl transition-all duration-300 transform -translate-y-2 opacity-0">
-            <a href="#home" onclick="toggleMenu()" class="block text-center py-4 text-accent font-display text-sm uppercase tracking-widest border border-accent/20 rounded">Beranda</a>
-            <a href="#about" onclick="toggleMenu()" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Tentang</a>
-            <a href="#menu" onclick="toggleMenu()" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Menu</a>
-            <a href="#blog" onclick="toggleMenu()" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Blog</a>
-            <a href="#gallery" onclick="toggleMenu()" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Galeri</a>
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-bg-alt border-b border-border shadow-2xl">
+            <div class="flex flex-col p-6 space-y-4 text-center">
+                <a href="#home" onclick="toggleMenu()" class="text-accent font-display text-sm uppercase tracking-widest py-2 border border-accent/20">Beranda</a>
+                <a href="#about" onclick="toggleMenu()" class="text-text-primary font-display text-sm uppercase tracking-widest py-2 hover:bg-white/5">Tentang</a>
+                <a href="#menu" onclick="toggleMenu()" class="text-text-primary font-display text-sm uppercase tracking-widest py-2 hover:bg-white/5">Menu</a>
+                <a href="#blog" onclick="toggleMenu()" class="text-text-primary font-display text-sm uppercase tracking-widest py-2 hover:bg-white/5">Blog</a>
+                <a href="#gallery" onclick="toggleMenu()" class="text-text-primary font-display text-sm uppercase tracking-widest py-2 hover:bg-white/5">Galeri</a>
+            </div>
         </div>
     </nav>
 
-    <main class="relative z-10">
-        <section id="proclamation" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
-            <div class="max-w-6xl mx-auto px-6 w-full">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                    <div class="order-2 md:order-1 space-y-8">
-                        <div class="flex items-center gap-4">
-                            <div class="h-[1px] w-12 bg-accent/50"></div>
-                            <span class="font-display text-[10px] text-accent tracking-[0.5em] uppercase">Volume I : The Beginning</span>
-                        </div>
-                        <h2 class="font-heading text-5xl md:text-8xl leading-[1.1] text-text-primary tracking-tight">
-                            Curated Elixirs for the <br>
-                            <span class="italic text-accent relative inline-block">
-                                Modern Scholar.
-                                <svg class="absolute -bottom-2 left-0 w-full h-2 text-accent/30" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
-                            </span>
-                        </h2>
-                        <p class="text-lg md:text-xl text-text-secondary leading-relaxed drop-cap text-justify font-light italic">
-                            Di sudut kota yang bising, kami membangun sebuah tempat perlindungan. Bukan sekadar kedai kopi, melainkan sebuah ruang kontemplasi.
-                        </p>
-                        <div class="pt-4">
-                            <a href="#menu" class="group relative inline-flex items-center gap-4 px-10 py-5 bg-brass-gradient text-bg-alt font-display text-xs font-bold tracking-[0.3em] uppercase rounded-[2px] overflow-hidden transition-all hover:pr-14">
-                                <span class="relative z-10">Jelajahi Menu</span>
-                                <svg class="w-4 h-4 absolute right-6 opacity-0 group-hover:opacity-100 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </a>
-                        </div>
+    <main class="relative z-10 pt-20">
+        
+        <section id="home" class="min-h-[90vh] flex items-center justify-center py-20 relative">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 space-y-6">
+                    <span class="font-display text-xs text-accent tracking-[0.4em] uppercase">The Scholar's Archive</span>
+                    <h2 class="font-heading text-5xl md:text-7xl text-text-primary leading-tight">
+                        Ruang Temu <br><span class="text-accent italic">Penikmat Rasa.</span>
+                    </h2>
+                    <p class="text-text-secondary text-lg font-body leading-relaxed max-w-lg">
+                        Sebuah tempat perlindungan di Jakarta Selatan. Kopi artisan, literasi, dan keheningan senja.
+                    </p>
+                    <div class="pt-4">
+                        <a href="#menu" class="inline-block px-8 py-4 bg-brass-gradient text-bg-alt font-display text-xs font-bold tracking-[0.2em] uppercase rounded hover:opacity-90 transition">
+                            Lihat Koleksi
+                        </a>
                     </div>
-
-                    <div class="order-1 md:order-2 flex justify-center">
-                        <div class="relative w-full max-w-md aspect-[3/4]">
-                            <div class="absolute inset-0 border border-accent/30 arch-top translate-x-4 translate-y-4"></div>
-                            <div class="absolute inset-0 arch-top overflow-hidden border border-border bg-bg-alt shadow-2xl group">
-                                <img src="aset/cave.menu/Cave 2.webp" class="w-full h-full object-cover sepia-effect" alt="Cave Senja">
-                            </div>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center">
+                    <div class="relative w-full max-w-sm aspect-[3/4]">
+                         <div class="absolute inset-0 border border-accent/30 arch-top translate-x-3 translate-y-3"></div>
+                        <div class="absolute inset-0 arch-top overflow-hidden bg-bg-alt border border-border">
+                            <img src="aset/cave.menu/Cave 2.webp" class="w-full h-full object-cover sepia-effect" alt="Cave Senja Front" width="362" height="663">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="max-w-4xl mx-auto px-6"><div class="ornate-divider"></div></div>
-
-        <section id="about" class="py-16 md:py-20 relative bg-bg-alt/50">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div class="relative group">
-                        <div class="absolute inset-0 border border-accent/20 translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
-                       <img src="aset/cave.menu/CaveSignatureLatte 2.webp" class="relative z-10 w-full h-auto sepia-effect shadow-2xl border border-border" alt="Interior">
-                    </div>
-                    <div>
-                        <span class="font-display text-xs text-accent tracking-[0.3em] uppercase block mb-4">The Philosophy</span>
-                        <h2 class="font-heading text-4xl md:text-5xl text-text-primary mb-6">Lebih Dari Sekedar Kopi</h2>
-                        <p class="font-body text-text-secondary text-base md:text-lg leading-relaxed mb-6">
-                            Kami percaya bahwa kopi adalah jembatan komunikasi. Bermula dari garasi kecil, kini kami menghadirkan ruang hangat bagi para pencinta kopi.
-                        </p>
-                        <ul class="space-y-4 mt-8 font-display text-xs tracking-widest text-text-primary">
-                            <li class="flex items-center gap-4"><span class="h-[1px] w-8 bg-accent"></span> 100% ARABICA ORIGIN</li>
-                            <li class="flex items-center gap-4"><span class="h-[1px] w-8 bg-accent"></span> ARTISAN BREWING</li>
-                        </ul>
-                    </div>
+        <section id="about" class="py-20 bg-bg-alt/50 border-t border-border">
+            <div class="max-w-5xl mx-auto px-6 text-center md:text-left grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <img src="aset/cave.menu/CaveSignatureLatte 2.webp" class="w-full h-auto border border-border sepia-effect shadow-xl" alt="Interior" width="600" height="400" loading="lazy">
+                </div>
+                <div>
+                    <h2 class="font-heading text-4xl text-text-primary mb-6">Filosofi Kami</h2>
+                    <p class="font-body text-text-secondary mb-6 leading-relaxed">
+                        Kami percaya kopi adalah medium. Dari biji Arabica pilihan hingga seduhan manual, setiap cangkir dibuat untuk menemani diskusi berat maupun lamunan ringan Anda.
+                    </p>
+                    <ul class="font-display text-xs tracking-widest text-accent space-y-3">
+                        <li>✦ 100% ARABICA GAYO & FLORES</li>
+                        <li>✦ MANUAL BREW SPECIALIST</li>
+                        <li>✦ CURATED BOOK COLLECTION</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section id="menu" class="py-16 md:py-24 bg-bg relative">
+        <section id="menu" class="py-24 bg-bg relative">
             <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-12 md:mb-20">
-                    <span class="font-display text-xs text-accent tracking-[0.3em] uppercase block mb-4">Volume II</span>
-                    <h3 class="font-heading text-4xl md:text-5xl text-text-primary mb-6">The Collection</h3>
-                    <p class="font-body text-text-secondary italic max-w-2xl mx-auto px-4">"Menu andalan yang dikurasi khusus."</p>
+                <div class="text-center mb-16">
+                    <span class="font-display text-xs text-accent tracking-[0.3em] uppercase">Volume II</span>
+                    <h3 class="font-heading text-5xl text-text-primary mt-2">The Collection</h3>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="group card-hover relative bg-bg-alt border border-border p-6 md:p-8 hover:border-accent/50 transition-colors duration-500">
-                        <div class="relative z-10 text-center">
-                            <div class="w-full aspect-[4/3] mb-6 overflow-hidden border border-border">
-                                <img src="aset/cave.menu/SignatureLatte (1).webp" class="w-full h-full object-cover sepia-effect" alt="Latte">
-                            </div>
-                            <h4 class="font-heading text-2xl text-text-primary mb-2">Signature Latte</h4>
-                            <span class="font-display text-accent text-lg tracking-widest">IDR 35K</span>
+                    <div class="bg-bg-alt border border-border p-6 text-center hover:border-accent transition duration-500 group">
+                        <div class="aspect-square overflow-hidden mb-6 border border-border">
+                            <img src="aset/cave.menu/SignatureLatte (1).webp" class="w-full h-full object-cover sepia-effect group-hover:scale-110 transition duration-700" alt="Latte" loading="lazy">
                         </div>
+                        <h4 class="font-heading text-2xl text-text-primary">Signature Latte</h4>
+                        <p class="text-accent font-display text-sm tracking-widest mt-2">IDR 35K</p>
                     </div>
-                    <div class="group card-hover relative bg-bg-alt border border-accent/40 p-6 md:p-8 hover:border-accent transition-colors duration-500 shadow-glow">
-                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-bg px-4 py-1 border border-accent z-20">
-                            <span class="font-display text-[10px] text-accent tracking-[0.2em] uppercase">Favorite</span>
+                    <div class="bg-bg-alt border border-accent/40 p-6 text-center relative shadow-[0_0_30px_rgba(212,175,55,0.1)] transform md:-translate-y-4">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-bg px-3 py-1 border border-accent">
+                            <span class="text-[10px] text-accent font-display uppercase tracking-widest">Favorit</span>
                         </div>
-                        <div class="relative z-10 text-center">
-                            <div class="w-full aspect-[4/3] mb-6 overflow-hidden border border-accent/30">
-                                <img src="aset/cave.menu/TruffleCarbonara (1).webp" class="w-full h-full object-cover sepia-effect" alt="Carbonara">
-                            </div>
-                            <h4 class="font-heading text-2xl text-text-primary mb-2">Truffle Carbonara</h4>
-                            <span class="font-display text-accent text-lg tracking-widest">IDR 65K</span>
+                        <div class="aspect-square overflow-hidden mb-6 border border-accent/30">
+                            <img src="aset/cave.menu/TruffleCarbonara (1).webp" class="w-full h-full object-cover sepia-effect" alt="Pasta" loading="lazy">
                         </div>
+                        <h4 class="font-heading text-2xl text-text-primary">Truffle Carbonara</h4>
+                        <p class="text-accent font-display text-sm tracking-widest mt-2">IDR 65K</p>
                     </div>
-                    <div class="group card-hover relative bg-bg-alt border border-border p-6 md:p-8 hover:border-accent/50 transition-colors duration-500">
-                        <div class="relative z-10 text-center">
-                            <div class="w-full aspect-[4/3] mb-6 overflow-hidden border border-border">
-                                <img src="aset/cave.menu/AlmondCroissant.webp" class="w-full h-full object-cover sepia-effect" alt="Croissant">
-                            </div>
-                            <h4 class="font-heading text-2xl text-text-primary mb-2">Almond Croissant</h4>
-                            <span class="font-display text-accent text-lg tracking-widest">IDR 28K</span>
+                    <div class="bg-bg-alt border border-border p-6 text-center hover:border-accent transition duration-500 group">
+                        <div class="aspect-square overflow-hidden mb-6 border border-border">
+                            <img src="aset/cave.menu/AlmondCroissant.webp" class="w-full h-full object-cover sepia-effect group-hover:scale-110 transition duration-700" alt="Croissant" loading="lazy">
                         </div>
+                        <h4 class="font-heading text-2xl text-text-primary">Almond Croissant</h4>
+                        <p class="text-accent font-display text-sm tracking-widest mt-2">IDR 28K</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="blog" class="py-16 md:py-24 bg-bg-alt relative border-t border-border">
-            <div class="max-w-6xl mx-auto px-6 text-center">
-                <span class="font-display text-xs text-accent tracking-[0.3em] uppercase block mb-4">Jurnal & Cerita</span>
-                <h3 class="font-heading text-4xl md:text-5xl text-text-primary mb-6">Catatan Barista</h3>
-                <p class="font-body text-text-secondary mb-12 max-w-2xl mx-auto">"Menyelami cerita di balik setiap seduhan dan biji kopi pilihan."</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                    <article class="border border-border p-6 hover:border-accent transition-colors cursor-pointer">
-                        <span class="text-accent text-xs tracking-widest uppercase">12 Jan 2024</span>
-                        <h4 class="font-heading text-2xl text-text-primary mt-2 mb-3">Mengenal Notes Arabica Gayo</h4>
-                        <p class="font-body text-text-muted text-sm">Eksplorasi rasa fruity dan body tebal dari dataran tinggi Aceh...</p>
+        <section id="blog" class="py-20 bg-bg-alt border-t border-border">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <span class="font-display text-xs text-accent tracking-[0.3em] uppercase">Jurnal Barista</span>
+                <h3 class="font-heading text-4xl text-text-primary mt-4 mb-8">Catatan Seduhan</h3>
+                <div class="grid md:grid-cols-2 gap-6 text-left">
+                    <article class="p-6 border border-border hover:border-accent transition cursor-pointer">
+                        <span class="text-accent text-[10px] tracking-widest uppercase">12 Jan 2024</span>
+                        <h4 class="font-heading text-xl text-text-primary mt-2">Mengenal Notes Arabica Gayo</h4>
+                        <p class="text-text-muted text-sm mt-2 font-body">Eksplorasi rasa fruity dan body tebal dari dataran tinggi...</p>
                     </article>
-                    <article class="border border-border p-6 hover:border-accent transition-colors cursor-pointer">
-                        <span class="text-accent text-xs tracking-widest uppercase">05 Jan 2024</span>
-                        <h4 class="font-heading text-2xl text-text-primary mt-2 mb-3">Seni Pour Over V60</h4>
-                        <p class="font-body text-text-muted text-sm">Teknik manual brew yang menonjolkan kejernihan rasa kopi...</p>
+                    <article class="p-6 border border-border hover:border-accent transition cursor-pointer">
+                        <span class="text-accent text-[10px] tracking-widest uppercase">05 Jan 2024</span>
+                        <h4 class="font-heading text-xl text-text-primary mt-2">Manual Brew V60 Guide</h4>
+                        <p class="text-text-muted text-sm mt-2 font-body">Teknik menuang air untuk hasil ekstraksi maksimal...</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="gallery" class="py-16 md:py-20 bg-bg relative border-t border-border">
+        <section id="gallery" class="py-20 bg-bg relative">
             <div class="max-w-7xl mx-auto px-6">
-                <h2 class="font-heading text-3xl md:text-4xl text-center text-text-primary mb-8 md:mb-12">Galeri Momen</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[150px] md:auto-rows-[200px]">
-                    <div class="col-span-2 row-span-2 relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/CaveSignatureLatte 2.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                <h3 class="font-heading text-3xl text-center text-text-primary mb-10">Arsip Visual</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                     <div class="col-span-2 row-span-2 relative overflow-hidden group">
+                        <img src="aset/cave.menu/CaveSignatureLatte 2.webp" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 sepia-effect" loading="lazy">
                     </div>
-                    <div class="relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/cafe.tentangkami.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                    <div class="relative overflow-hidden group h-48 md:h-auto">
+                        <img src="aset/cave.menu/cafe.tentangkami.webp" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 sepia-effect" loading="lazy">
                     </div>
-                    <div class="relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/ChocoWalnutCookie.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                    <div class="relative overflow-hidden group h-48 md:h-auto">
+                        <img src="aset/cave.menu/ChocoWalnutCookie.webp" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 sepia-effect" loading="lazy">
                     </div>
-                    <div class="relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/EksplorasiRasa.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                    <div class="relative overflow-hidden group h-48 md:h-auto">
+                        <img src="aset/cave.menu/EksplorasiRasa.webp" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 sepia-effect" loading="lazy">
                     </div>
-                    <div class="relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/StandarKebersihan.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                    <div class="relative overflow-hidden group h-48 md:h-auto">
+                        <img src="aset/cave.menu/StandarKebersihan.webp" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 sepia-effect" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="py-16 md:py-24 bg-bg-alt relative">
-            <div class="max-w-3xl mx-auto px-6">
-                <div class="text-center mb-10">
-                    <h2 class="font-heading text-3xl md:text-4xl text-text-primary">Jam Operasional</h2>
-                </div>
-                <div class="border border-border p-8 text-center space-y-4">
-                    <p class="text-text-primary"><strong class="text-accent">Senin - Kamis:</strong> 08:00 - 22:00</p>
-                    <p class="text-text-primary"><strong class="text-accent">Jumat - Sabtu:</strong> 08:00 - 23:00</p>
-                    <p class="text-text-primary"><strong class="text-accent">Minggu:</strong> 09:00 - 21:00</p>
-                </div>
-            </div>
-        </section>
-
-        <footer class="bg-bg border-t border-border mt-10 md:mt-20 relative pt-16 pb-8">
-            <div class="max-w-6xl mx-auto px-6 text-center">
-                <h2 class="font-display text-2xl tracking-widest text-accent uppercase mb-4">Cave Senja</h2>
-                <p class="font-body text-text-secondary mb-8">Jalan Kopi No. 10, Jakarta Selatan</p>
-                <div class="text-xs text-text-muted">
-                    <p>© 2024 Cave Senja. All Rights Reserved.</p>
-                </div>
-            </div>
-        </footer>
     </main>
 
+    <footer class="bg-bg-alt border-t border-border relative z-20">
+        <div class="max-w-6xl mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+                <div>
+                    <h2 class="font-display text-xl text-accent uppercase tracking-widest mb-4">Cave Senja</h2>
+                    <p class="font-body text-text-secondary text-sm">Jalan Kopi No. 10, Jakarta Selatan.<br>Tempat di mana cerita bermula.</p>
+                </div>
+                <div>
+                    <h3 class="font-display text-sm text-accent uppercase tracking-widest mb-4">Jam Operasional</h3>
+                    <ul class="font-body text-text-secondary text-sm space-y-2">
+                        <li>Senin - Kamis: 08:00 - 22:00</li>
+                        <li>Jumat - Sabtu: 08:00 - 23:00</li>
+                        <li>Minggu: 09:00 - 21:00</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-display text-sm text-accent uppercase tracking-widest mb-4">Kontak</h3>
+                    <ul class="font-body text-text-secondary text-sm space-y-2">
+                        <li><a href="https://wa.me/6281234567890" class="hover:text-accent">+62 812 3456 7890</a></li>
+                        <li><a href="#" class="hover:text-accent">@cavesenja</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-border mt-12 pt-8 text-center">
+                <p class="font-body text-xs text-text-muted">© 2024 Cave Senja. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Toggle Mobile Menu
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
-            const iconSvg = document.getElementById('menu-icon-svg');
+            const icon = document.getElementById('menu-icon');
             
             if (menu.classList.contains('hidden')) {
                 menu.classList.remove('hidden');
-                setTimeout(() => {
-                    menu.classList.remove('opacity-0', '-translate-y-2');
-                    menu.classList.add('opacity-100', 'translate-y-0');
-                }, 10);
-                // Icon X
-                iconSvg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'; // Icon X
             } else {
-                menu.classList.remove('opacity-100', 'translate-y-0');
-                menu.classList.add('opacity-0', '-translate-y-2');
-                // Icon Burger
-                iconSvg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-                setTimeout(() => { menu.classList.add('hidden'); }, 300);
+                menu.classList.add('hidden');
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>'; // Icon Burger
             }
         }
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-bg', 'shadow-lg');
-                nav.classList.remove('bg-bg/95');
-            } else {
-                nav.classList.remove('bg-bg', 'shadow-lg');
-                nav.classList.add('bg-bg/95');
-            }
-        });
     </script>
 </body>
 </html>
