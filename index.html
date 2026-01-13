@@ -11,17 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    <link rel="preload" as="image" href="aset/cave.menu/Cave 2.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="aset/cave.menu/Cave%202.webp" fetchpriority="high">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script>
         tailwind.config = {
             theme: {
@@ -59,6 +56,7 @@
             }
         }
     </script>
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -100,17 +98,17 @@
     </script>
     
     <style type="text/css">
-        /* Tetap mempertahankan semua style asli Anda */
+        /* Critical CSS optimizations */
         .texture-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
         .vignette-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 49; background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(28,23,20,0.7) 100%); }
         .arch-top { border-radius: 40% 40% 0 0 / 20% 20% 0 0; }
-        .sepia-effect { filter: sepia(0.6) contrast(0.95) brightness(0.9); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; }
+        .sepia-effect { filter: sepia(0.6) contrast(0.95) brightness(0.9); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; will-change: transform, filter; }
         .sepia-effect:hover { filter: sepia(0.2) contrast(1.05) brightness(1); transform: scale(1.02); }
         .drop-cap::first-letter { float: left; font-family: 'Cinzel', serif; font-size: 4.5rem; line-height: 0.8; margin-right: 0.75rem; margin-top: 0.25rem; color: #C9A962; text-shadow: 2px 2px 0px rgba(0,0,0,0.2); }
         .ornate-divider { height: 1px; background: linear-gradient(90deg, transparent 0%, #4A3F35 20%, #C9A962 50%, #4A3F35 80%, transparent 100%); position: relative; margin: 3rem 0; }
         .ornate-divider::after { content: "✶"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: #C9A962; background-color: #0F0E0E; padding: 0 15px; font-size: 1.2rem; }
         
-        /* Optimasi performa: content-visibility */
+        /* content-visibility optimization */
         section { content-visibility: auto; contain-intrinsic-size: 1px 500px; }
     </style>
 </head>
@@ -130,10 +128,10 @@
                             </svg>
                         </div>
                     </div>
-<div>
-    <h1 class="font-display text-xl tracking-widest-xl text-accent uppercase group-hover:text-white transition-colors">Cave Senja</h1>
-    <p class="font-heading text-[10px] text-white/80 tracking-[0.4em] uppercase">Est. MMXXIV</p>
-</div>
+                    <div>
+                        <h1 class="font-display text-xl tracking-widest-xl text-accent uppercase group-hover:text-white transition-colors">Cave Senja</h1>
+                        <p class="font-heading text-[10px] text-white/80 tracking-[0.4em] uppercase">Est. MMXXIV</p>
+                    </div>
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-12">
@@ -145,12 +143,12 @@
                 </div>
 
                 <button onclick="toggleMenu()" class="md:hidden text-accent p-2 hover:bg-white/5 rounded-full transition-colors" aria-label="Toggle Menu">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg id="menu-icon-svg" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full bg-bg-alt/98 backdrop-blur-xl border-b border-accent/20 py-8 px-6 space-y-4 md:hidden shadow-2xl">
+        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full bg-bg-alt/98 backdrop-blur-xl border-b border-accent/20 py-8 px-6 space-y-4 md:hidden shadow-2xl opacity-0 -translate-y-2 transition-all duration-300">
             <a href="index.html" class="block text-center py-4 text-accent font-display text-sm uppercase tracking-widest border border-accent/20 rounded">Beranda</a>
             <a href="tentang-kami.html" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Tentang</a>
             <a href="menu.html" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Menu</a>
@@ -190,18 +188,16 @@
                         <div class="relative w-full max-w-md aspect-[3/4]">
                             <div class="absolute inset-0 border border-accent/30 arch-top translate-x-4 translate-y-4"></div>
                             <div class="absolute inset-0 arch-top overflow-hidden border border-border bg-bg-alt shadow-2xl group">
-                               <img 
-  src="aset/cave.menu/Cave 2.webp"
- 
-  sizes="(max-width: 768px) 90vw, 362px"
-  alt="Cave Senja Coffee"
-  width="362"
-  height="663"
-  fetchpriority="high"
-  decoding="async"
-  class="w-full h-full object-cover sepia-effect"
-/>
-
+                                <img 
+                                  src="aset/cave.menu/Cave 2.webp"
+                                  sizes="(max-width: 768px) 90vw, 362px"
+                                  alt="Cave Senja Coffee Interior"
+                                  width="362"
+                                  height="663"
+                                  fetchpriority="high"
+                                  decoding="async"
+                                  class="w-full h-full object-cover sepia-effect"
+                                />
                             </div>
                         </div>
                     </div>
@@ -218,20 +214,20 @@
                     <div class="relative group">
                         <div class="absolute inset-0 border border-accent/20 translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
                        <img 
-  src="aset/cave.menu/CaveSignatureLatte.webp"
-  srcset="
-    aset/cave.menu/CaveSignatureLatte.webp 360w,
-    aset/cave.menu/CaveSignatureLatte.webp 640w,
-    aset/cave.menu/CaveSignatureLatte.webp 800w
-  "
-  sizes="(max-width: 768px) 90vw, 360px"
-  alt="Interior Cave Senja"
-  width="360"
-  height="290"
-  loading="lazy"
-  decoding="async"
-  class="relative z-10 w-full h-auto sepia-effect shadow-2xl border border-border"
-/>
+                          src="aset/cave.menu/CaveSignatureLatte.webp"
+                          srcset="
+                            aset/cave.menu/CaveSignatureLatte.webp 360w,
+                            aset/cave.menu/CaveSignatureLatte.webp 640w,
+                            aset/cave.menu/CaveSignatureLatte.webp 800w
+                          "
+                          sizes="(max-width: 768px) 90vw, 360px"
+                          alt="Signature Latte Cave Senja"
+                          width="360"
+                          height="290"
+                          loading="lazy"
+                          decoding="async"
+                          class="relative z-10 w-full h-auto sepia-effect shadow-2xl border border-border"
+                        />
                     </div>
                     
                     <div>
@@ -285,7 +281,7 @@
                             <div class="w-full aspect-[4/3] mb-6 overflow-hidden border border-border">
                                 <img src="aset/cave.menu/SignatureLatte (1).webp" 
                                      width="800" height="600" loading="lazy" decoding="async"
-                                     class="w-full h-full object-cover sepia-effect" alt="Latte Art">
+                                     class="w-full h-full object-cover sepia-effect" alt="Latte Art Cave Senja">
                             </div>
                             <h4 class="font-heading text-2xl md:text-3xl text-text-primary mb-2">Signature Latte</h4>
                             <div class="w-12 h-[1px] bg-accent mx-auto my-3"></div>
@@ -310,7 +306,7 @@
                             <div class="w-full aspect-[4/3] mb-6 overflow-hidden border border-accent/30">
                                 <img src="aset/cave.menu/TruffleCarbonara (1).webp" 
                                      width="800" height="600" loading="lazy" decoding="async"
-                                     class="w-full h-full object-cover sepia-effect" alt="Truffle Carbonara">
+                                     class="w-full h-full object-cover sepia-effect" alt="Truffle Carbonara Pasta">
                             </div>
                             <h4 class="font-heading text-2xl md:text-3xl text-text-primary mb-2">Truffle Carbonara</h4>
                             <div class="w-12 h-[1px] bg-accent mx-auto my-3"></div>
@@ -331,7 +327,7 @@
                             <div class="w-full aspect-[4/3] mb-6 overflow-hidden border border-border">
                                 <img src="aset/cave.menu/AlmondCroissant.webp" 
                                      width="800" height="600" loading="lazy" decoding="async"
-                                     class="w-full h-full object-cover sepia-effect" alt="Almond Croissant">
+                                     class="w-full h-full object-cover sepia-effect" alt="Almond Croissant Pastry">
                             </div>
                             <h4 class="font-heading text-2xl md:text-3xl text-text-primary mb-2">Almond Croissant</h4>
                             <div class="w-12 h-[1px] bg-accent mx-auto my-3"></div>
@@ -358,23 +354,23 @@
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[150px] md:auto-rows-[200px]">
                     <div class="col-span-2 row-span-2 relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/CaveSignatureLatte 2.webp" width="800" height="800" alt="Coffee Pour Process" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                        <img src="aset/cave.menu/CaveSignatureLatte 2.webp" width="800" height="800" alt="Proses Pembuatan Kopi" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
                         <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
                             <span class="font-display text-accent tracking-widest uppercase text-sm">The Process</span>
                         </div>
                     </div>
                     
                     <div class="relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/cafe.tentangkami.webp" width="400" height="400" alt="Cafe Vibes" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                        <img src="aset/cave.menu/cafe.tentangkami.webp" width="400" height="400" alt="Suasana Cafe" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
                     </div>
                     <div class="relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/ChocoWalnutCookie.webp" width="400" height="400" alt="Coffee Beans" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                        <img src="aset/cave.menu/ChocoWalnutCookie.webp" width="400" height="400" alt="Biji Kopi Pilihan" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
                     </div>
                     <div class="relative group overflow-hidden border border-border">
                         <img src="aset/cave.menu/EksplorasiRasa.webp" width="400" height="400" alt="Espresso Shot" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
                     </div>
                     <div class="relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/StandarKebersihan.webp" width="400" height="400" alt="Social Coffee" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                        <img src="aset/cave.menu/StandarKebersihan.webp" width="400" height="400" alt="Suasana Sosial" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
                     </div>
                 </div>
 
@@ -548,7 +544,7 @@
         </a>
     </div>
 
-    <script>
+    <script defer>
         // Optimized Toggle Mobile Menu
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
