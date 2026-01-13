@@ -34,12 +34,84 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+    </noscript>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
+
+    <style>
+        /* Define variable colors manual agar ready sebelum tailwind load */
+        :root {
+            --bg: #0F0E0E;
+            --text-primary: #EAE0D5;
+            --accent: #D4AF37;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Crimson Pro', serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Cinzel', serif; }
+        
+        /* Optimasi tekstur agar tidak berat */
+        .texture-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .vignette-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 49;
+            background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(28,23,20,0.7) 100%);
+        }
+        .arch-top { border-radius: 40% 40% 0 0 / 20% 20% 0 0; }
+        .sepia-effect { filter: sepia(0.6) contrast(0.95) brightness(0.9); transition: filter 700ms ease-out, transform 700ms ease-out; }
+        .card-hover:hover .sepia-effect { filter: sepia(0) contrast(1) brightness(1); transform: scale(1.05); }
+        .drop-cap::first-letter {
+            float: left; font-family: 'Cinzel', serif; font-size: 4.5rem; line-height: 0.8; margin-right: 0.75rem; margin-top: 0.25rem; color: #C9A962; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .ornate-divider {
+            height: 1px; background: linear-gradient(90deg, transparent 0%, #4A3F35 20%, #C9A962 50%, #4A3F35 80%, transparent 100%); position: relative; margin: 3rem 0;
+        }
+        .ornate-divider::after {
+            content: "✶"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: #C9A962; background-color: #1C1714; padding: 0 10px; font-family: serif;
+        }
+        .corner-flourish {
+            position: absolute; width: 20px; height: 20px; border: 1px solid #C9A962; transition: all 0.3s ease; opacity: 0.6;
+        }
+        .flourish-tl { top: 1rem; left: 1rem; border-right: none; border-bottom: none; }
+        .flourish-tr { top: 1rem; right: 1rem; border-left: none; border-bottom: none; }
+        .flourish-bl { bottom: 1rem; left: 1rem; border-right: none; border-top: none; }
+        .flourish-br { bottom: 1rem; right: 1rem; border-left: none; border-top: none; }
+        .card-hover:hover .corner-flourish { width: 30px; height: 30px; opacity: 1; }
+
+        /* MOBILE MENU ANIMATIONS */
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transform-origin: top;
+        }
+        .mobile-menu-open {
+            opacity: 1;
+            transform: scaleY(1);
+            pointer-events: auto;
+        }
+        .mobile-menu-closed {
+            opacity: 0;
+            transform: scaleY(0.95);
+            pointer-events: none;
+            display: none; 
+        }
+    </style>
+
+    <script src="https://cdn.tailwindcss.com" defer></script>
     <script>
         tailwind.config = {
             theme: {
@@ -113,55 +185,6 @@
       ]
     }
     </script>
-
-    <style>
-        /* CSS optimizations included from original */
-        .texture-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-        .vignette-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 49;
-            background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(28,23,20,0.7) 100%);
-        }
-        .arch-top { border-radius: 40% 40% 0 0 / 20% 20% 0 0; }
-        .sepia-effect { filter: sepia(0.6) contrast(0.95) brightness(0.9); transition: filter 700ms ease-out, transform 700ms ease-out; }
-        .card-hover:hover .sepia-effect { filter: sepia(0) contrast(1) brightness(1); transform: scale(1.05); }
-        .drop-cap::first-letter {
-            float: left; font-family: 'Cinzel', serif; font-size: 4.5rem; line-height: 0.8; margin-right: 0.75rem; margin-top: 0.25rem; color: #C9A962; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .ornate-divider {
-            height: 1px; background: linear-gradient(90deg, transparent 0%, #4A3F35 20%, #C9A962 50%, #4A3F35 80%, transparent 100%); position: relative; margin: 3rem 0;
-        }
-        .ornate-divider::after {
-            content: "✶"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: #C9A962; background-color: #1C1714; padding: 0 10px; font-family: serif;
-        }
-        .corner-flourish {
-            position: absolute; width: 20px; height: 20px; border: 1px solid #C9A962; transition: all 0.3s ease; opacity: 0.6;
-        }
-        .flourish-tl { top: 1rem; left: 1rem; border-right: none; border-bottom: none; }
-        .flourish-tr { top: 1rem; right: 1rem; border-left: none; border-bottom: none; }
-        .flourish-bl { bottom: 1rem; left: 1rem; border-right: none; border-top: none; }
-        .flourish-br { bottom: 1rem; right: 1rem; border-left: none; border-top: none; }
-        .card-hover:hover .corner-flourish { width: 30px; height: 30px; opacity: 1; }
-
-        /* MOBILE MENU ANIMATIONS */
-        #mobile-menu {
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-            transform-origin: top;
-        }
-        .mobile-menu-open {
-            opacity: 1;
-            transform: scaleY(1);
-            pointer-events: auto;
-        }
-        .mobile-menu-closed {
-            opacity: 0;
-            transform: scaleY(0.95);
-            pointer-events: none;
-            display: none; /* Fallback */
-        }
-    </style>
 </head>
 <body class="font-body text-text-primary bg-bg antialiased overflow-x-hidden">
 
