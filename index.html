@@ -186,11 +186,22 @@
                         <div class="relative w-full max-w-md aspect-[3/4]">
                             <div class="absolute inset-0 border border-accent/30 arch-top translate-x-4 translate-y-4"></div>
                             <div class="absolute inset-0 arch-top overflow-hidden border border-border bg-bg-alt shadow-2xl group">
-                                <img src="aset/cave.menu/Cave.webp" 
-                                     alt="Cave Senja Coffee" 
-                                     class="w-full h-full object-cover sepia-effect"
-                                     fetchpriority="high"
-                                     decoding="async">
+                               <img 
+  src="aset/cave.menu/Cave.webp"
+  srcset="
+    aset/cave.menu/Cavewebp 360w,
+    aset/cave.menu/Cave.webp 480w,
+    aset/cave.menu/Cave.webp 640w
+  "
+  sizes="(max-width: 768px) 90vw, 362px"
+  alt="Cave Senja Coffee"
+  width="362"
+  height="663"
+  fetchpriority="high"
+  decoding="async"
+  class="w-full h-full object-cover sepia-effect"
+/>
+
                             </div>
                         </div>
                     </div>
@@ -206,12 +217,21 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="relative group">
                         <div class="absolute inset-0 border border-accent/20 translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
-                        <img src="aset/cave.menu/CaveSignatureLatte.webp" 
-                             alt="Interior Cave Senja" 
-                             width="800" height="600"
-                             loading="lazy"
-                             decoding="async"
-                             class="relative z-10 w-full h-auto sepia-effect shadow-2xl border border-border">
+                       <img 
+  src="aset/cave.menu/CaveSignatureLatte.webp"
+  srcset="
+    aset/cave.menu/CaveSignatureLatte.webp 360w,
+    aset/cave.menu/CaveSignatureLatte.webp 640w,
+    aset/cave.menu/CaveSignatureLatte.webp 800w
+  "
+  sizes="(max-width: 768px) 90vw, 360px"
+  alt="Interior Cave Senja"
+  width="360"
+  height="290"
+  loading="lazy"
+  decoding="async"
+  class="relative z-10 w-full h-auto sepia-effect shadow-2xl border border-border"
+/>
                     </div>
                     
                     <div>
