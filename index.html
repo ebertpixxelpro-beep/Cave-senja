@@ -11,13 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
     <link rel="preload" as="image" href="aset/cave.menu/Cave.webp" fetchpriority="high">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -40,6 +40,10 @@
                         heading: ['Cormorant Garamond', 'serif'],
                         body: ['Crimson Pro', 'serif'],
                     },
+                    letterSpacing: {
+                        'widest-xl': '0.3em',
+                        'widest-2xl': '0.5em',
+                    },
                     backgroundImage: {
                         'brass-gradient': 'linear-gradient(135deg, #B5952F 0%, #D4AF37 50%, #8C7326 100%)',
                     },
@@ -51,7 +55,6 @@
             }
         }
     </script>
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -92,152 +95,108 @@
     }
     </script>
     
-    <style>
-        /* CSS optimizations */
-        .texture-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-        .vignette-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 49;
-            background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(28,23,20,0.7) 100%);
-        }
+    <style type="text/css">
+        /* Tetap mempertahankan semua style asli Anda */
+        .texture-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        .vignette-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 49; background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(28,23,20,0.7) 100%); }
         .arch-top { border-radius: 40% 40% 0 0 / 20% 20% 0 0; }
+        .sepia-effect { filter: sepia(0.6) contrast(0.95) brightness(0.9); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease; }
+        .sepia-effect:hover { filter: sepia(0.2) contrast(1.05) brightness(1); transform: scale(1.02); }
+        .drop-cap::first-letter { float: left; font-family: 'Cinzel', serif; font-size: 4.5rem; line-height: 0.8; margin-right: 0.75rem; margin-top: 0.25rem; color: #C9A962; text-shadow: 2px 2px 0px rgba(0,0,0,0.2); }
+        .ornate-divider { height: 1px; background: linear-gradient(90deg, transparent 0%, #4A3F35 20%, #C9A962 50%, #4A3F35 80%, transparent 100%); position: relative; margin: 3rem 0; }
+        .ornate-divider::after { content: "✶"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: #C9A962; background-color: #0F0E0E; padding: 0 15px; font-size: 1.2rem; }
         
-        /* Hardware acceleration for smooth animation */
-        .sepia-effect { filter: sepia(0.6) contrast(0.95) brightness(0.9); transition: transform 0.3s ease-out, filter 0.3s ease-out; will-change: transform, filter; transform: translateZ(0); }
-        .card-hover:hover .sepia-effect { filter: sepia(0) contrast(1) brightness(1); transform: scale(1.03) translateZ(0); }
-        
-        .drop-cap::first-letter {
-            float: left; font-family: 'Cinzel', serif; font-size: 4.5rem; line-height: 0.8; margin-right: 0.75rem; margin-top: 0.25rem; color: #C9A962; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .ornate-divider {
-            height: 1px; background: linear-gradient(90deg, transparent 0%, #4A3F35 20%, #C9A962 50%, #4A3F35 80%, transparent 100%); position: relative; margin: 3rem 0;
-        }
-        .ornate-divider::after {
-            content: "✶"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: #C9A962; background-color: #1C1714; padding: 0 10px; font-family: serif;
-        }
-        .corner-flourish {
-            position: absolute; width: 20px; height: 20px; border: 1px solid #C9A962; transition: all 0.3s ease; opacity: 0.6;
-        }
-        .flourish-tl { top: 1rem; left: 1rem; border-right: none; border-bottom: none; }
-        .flourish-tr { top: 1rem; right: 1rem; border-left: none; border-bottom: none; }
-        .flourish-bl { bottom: 1rem; left: 1rem; border-right: none; border-top: none; }
-        .flourish-br { bottom: 1rem; right: 1rem; border-left: none; border-top: none; }
-        .card-hover:hover .corner-flourish { width: 30px; height: 30px; opacity: 1; }
-
-        #mobile-menu {
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-            transform-origin: top;
-        }
-        
-        /* Critical CSS for layout stability */
-        body { background-color: #0F0E0E; color: #EAE0D5; }
+        /* Optimasi performa: content-visibility */
+        section { content-visibility: auto; contain-intrinsic-size: 1px 500px; }
     </style>
 </head>
-<body class="font-body text-text-primary bg-bg antialiased overflow-x-hidden">
+<body class="font-body text-text-primary bg-bg antialiased overflow-x-hidden selection:bg-accent selection:text-bg">
 
     <div class="texture-overlay"></div>
     <div class="vignette-overlay"></div>
 
-    <nav class="fixed w-full z-40 bg-bg/95 backdrop-blur-sm border-b border-border shadow-lg transition-all duration-300">
+    <nav class="fixed w-full z-40 bg-bg/95 backdrop-blur-sm border-b border-border transition-all duration-500">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex items-center justify-between h-24">
                 <div class="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
-                    <div class="w-10 h-10 rounded-full border border-accent flex items-center justify-center bg-bg-alt group-hover:bg-accent/10 transition-colors">
-                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    <div class="relative">
+                        <div class="w-10 h-10 rounded-full border border-accent/50 flex items-center justify-center bg-bg-alt group-hover:border-accent transition-colors duration-500">
+                            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                        </div>
                     </div>
                     <div>
-                        <h1 class="font-display text-xl tracking-widest-xl text-accent uppercase">Cave Senja</h1>
-                        <p class="font-heading text-xs text-text-secondary tracking-widest uppercase">Est. MMXXIV</p>
+                        <h1 class="font-display text-xl tracking-widest-xl text-accent uppercase group-hover:text-white transition-colors">Cave Senja</h1>
+                        <p class="font-heading text-[10px] text-text-secondary tracking-[0.4em] uppercase opacity-70">Est. MMXXIV</p>
                     </div>
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-12">
-                  <a href="index.html" class="font-display text-xs tracking-widest text-accent border-b border-accent transition-colors uppercase">Beranda</a>
-                  <a href="tentang-kami.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase">Tentang</a>
-                  <a href="menu.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase">Menu</a>
-                  <a href="blog.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase">Blog</a>
-                  <a href="galeri.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase">Gallery</a>
+                    <a href="index.html" class="relative font-display text-xs tracking-widest text-accent uppercase py-2 group">Beranda</a>
+                    <a href="tentang-kami.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Tentang</a>
+                    <a href="menu.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Menu</a>
+                    <a href="blog.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Blog</a>
+                    <a href="galeri.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Gallery</a>
                 </div>
 
-                <button onclick="toggleMenu()" class="md:hidden text-accent text-xl cursor-pointer hover:text-white transition p-2" aria-label="Toggle Menu">
-                    <svg id="menu-icon-svg" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <button onclick="toggleMenu()" class="md:hidden text-accent p-2 hover:bg-white/5 rounded-full transition-colors" aria-label="Toggle Menu">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden opacity-0 -translate-y-2 absolute top-24 left-0 w-full bg-bg-alt/95 backdrop-blur-md border-b border-accent/20 shadow-2xl flex flex-col items-center py-6 space-y-2 md:hidden">
-            <a href="index.html" class="w-11/12 text-center py-3 border-b border-border/50 font-display text-sm tracking-[0.2em] text-accent hover:bg-white/5 transition-colors uppercase">Beranda</a>
-            <a href="tentang-kami.html" class="w-11/12 text-center py-3 border-b border-border/50 font-display text-sm tracking-[0.2em] text-text-primary hover:text-accent hover:bg-white/5 transition-colors uppercase">Tentang</a>
-            <a href="menu.html" class="w-11/12 text-center py-3 border-b border-border/50 font-display text-sm tracking-[0.2em] text-text-primary hover:text-accent hover:bg-white/5 transition-colors uppercase">Menu</a>
-            <a href="blog.html" class="w-11/12 text-center py-3 border-b border-border/50 font-display text-sm tracking-[0.2em] text-text-primary hover:text-accent hover:bg-white/5 transition-colors uppercase">Blog</a>
-            <a href="galeri.html" class="w-11/12 text-center py-3 font-display text-sm tracking-[0.2em] text-text-primary hover:text-accent hover:bg-white/5 transition-colors uppercase">Gallery</a>
-            
-            <div class="pt-4 w-full flex justify-center gap-6">
-                 <a href="#" class="text-accent hover:text-white transition-colors" aria-label="Instagram">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                 </a>
-                 <a href="#" class="text-accent hover:text-white transition-colors" aria-label="WhatsApp">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                 </a>
-            </div>
+        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full bg-bg-alt/98 backdrop-blur-xl border-b border-accent/20 py-8 px-6 space-y-4 md:hidden shadow-2xl">
+            <a href="index.html" class="block text-center py-4 text-accent font-display text-sm uppercase tracking-widest border border-accent/20 rounded">Beranda</a>
+            <a href="tentang-kami.html" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Tentang</a>
+            <a href="menu.html" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Menu</a>
+            <a href="blog.html" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Blog</a>
+            <a href="galeri.html" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Gallery</a>
         </div>
     </nav>
 
-    <main class="relative z-10 pt-24">
-         
-        <section id="proclamation" class="min-h-screen flex items-center justify-center py-16 md:py-20 relative">
+    <main class="relative z-10">
+        <section id="proclamation" class="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
             <div class="max-w-6xl mx-auto px-6 w-full">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-                    
-                    <div class="order-2 md:order-1 relative">
-                        <div class="flex items-center gap-4 mb-4 md:mb-6">
-                            <div class="h-[1px] w-8 md:w-12 bg-accent"></div>
-                            <span class="font-display text-[10px] md:text-xs text-accent tracking-[0.3em] uppercase">Volume I : The Beginning</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1 space-y-8">
+                        <div class="flex items-center gap-4">
+                            <div class="h-[1px] w-12 bg-accent/50"></div>
+                            <span class="font-display text-[10px] text-accent tracking-[0.5em] uppercase">Volume I : The Beginning</span>
                         </div>
-
-                        <h2 class="font-heading text-4xl md:text-7xl leading-[1.1] md:leading-[0.9] text-text-primary mb-6 md:mb-8">
+                        <h2 class="font-heading text-5xl md:text-8xl leading-[1.1] text-text-primary tracking-tight">
                             Curated Elixirs for the <br>
-                            <span class="italic text-accent">Modern Scholar.</span>
+                            <span class="italic text-accent relative inline-block">
+                                Modern Scholar.
+                                <svg class="absolute -bottom-2 left-0 w-full h-2 text-accent/30" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+                            </span>
                         </h2>
-
-                        <p class="text-base md:text-lg text-text-secondary leading-relaxed mb-8 md:mb-10 max-w-lg drop-cap text-justify md:text-left">
-                            Di sudut kota yang bising, kami membangun sebuah tempat perlindungan. Bukan sekadar kedai kopi, melainkan sebuah ruang kontemplasi di mana aroma biji kopi pilihan menyatu dengan keheningan yang menenangkan jiwa.
+                        <p class="text-lg md:text-xl text-text-secondary leading-relaxed drop-cap text-justify font-light italic">
+                            Di sudut kota yang bising, kami membangun sebuah tempat perlindungan. Bukan sekadar kedai kopi, melainkan sebuah ruang kontemplasi di mana aroma biji kopi pilihan menyatu dengan keheningan literasi dan hangatnya diskusi senja.
                         </p>
-
-                        <div class="flex gap-6 items-center">
-                            <a href="menu.html" class="px-8 md:px-10 py-3 md:py-4 bg-brass-gradient text-bg-alt font-display text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase shadow-engraved hover:brightness-110 transition-all rounded-[2px]">
-                                Jelajahi Menu
+                        <div class="pt-4">
+                            <a href="menu.html" class="group relative inline-flex items-center gap-4 px-10 py-5 bg-brass-gradient text-bg-alt font-display text-xs font-bold tracking-[0.3em] uppercase rounded-[2px] overflow-hidden transition-all hover:pr-14">
+                                <span class="relative z-10">Jelajahi Menu</span>
+                                <svg class="w-4 h-4 absolute right-6 opacity-0 group-hover:opacity-100 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </a>
                         </div>
                     </div>
 
-                    <div class="order-1 md:order-2 relative flex justify-center">
-                        <div class="relative w-full max-w-sm md:max-w-md aspect-[3/4]">
-                            <div class="absolute inset-0 border border-accent/30 arch-top translate-x-3 translate-y-3"></div>
-                            
-                            <div class="absolute inset-0 arch-top overflow-hidden border border-border bg-bg-alt shadow-2xl">
+                    <div class="order-1 md:order-2 flex justify-center">
+                        <div class="relative w-full max-w-md aspect-[3/4]">
+                            <div class="absolute inset-0 border border-accent/30 arch-top translate-x-4 translate-y-4"></div>
+                            <div class="absolute inset-0 arch-top overflow-hidden border border-border bg-bg-alt shadow-2xl group">
                                 <img src="aset/cave.menu/Cave.webp" 
-                                     alt="Cave Senja Coffee Aesthetic" 
-                                     width="800" height="1067"
+                                     alt="Cave Senja Coffee" 
+                                     class="w-full h-full object-cover sepia-effect"
                                      fetchpriority="high"
-                                     decoding="async"
-                                     class="w-full h-full object-cover sepia-effect hover:scale-105 transition-all duration-700">
-                            </div>
-                            
-                            <div class="absolute -top-4 -right-4 w-16 h-16 md:w-20 md:h-20 rounded-full bg-surface shadow-lg flex items-center justify-center border-4 border-bg-alt z-20">
-                                <div class="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center">
-                                    <span class="font-display text-text-primary text-[10px] md:text-xs font-bold text-center leading-tight">EST<br>2024</span>
-                                </div>
+                                     decoding="async">
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
-
         <div class="max-w-4xl mx-auto px-6">
             <div class="ornate-divider"></div>
         </div>
