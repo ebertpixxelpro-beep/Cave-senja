@@ -6,19 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <title>Cave Senja | The Scholar's Archive - Kopi & Ruang Kontemplasi</title>
-    <meta name="description" content="Cave Senja adalah kedai kopi artisan dan ruang kontemplasi di Jakarta Selatan. Nikmati kopi Arabica terbaik dalam suasana perpustakaan klasik yang tenang.">
+    <meta name="description" content="Cave Senja adalah kedai kopi artisan dan ruang kontemplasi di Jakarta Selatan.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
-
-
-    <link rel="preload" as="image" href="aset/cave.menu/Cave 2.webp" fetchpriority="high">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -59,48 +51,8 @@
             }
         }
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CafeOrCoffeeShop",
-      "name": "Cave Senja",
-      "image": "https://images.unsplash.com/photo-1442512595367-f273b5260b46",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Jalan Kopi No. 10",
-        "addressLocality": "Jakarta Selatan",
-        "addressRegion": "DKI Jakarta",
-        "postalCode": "12345",
-        "addressCountry": "ID"
-      },
-      "priceRange": "$$",
-      "telephone": "+6281234567890",
-      "servesCuisine": "Coffee, Western, Pastry",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-          "opens": "08:00",
-          "closes": "22:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Friday", "Saturday"],
-          "opens": "08:00",
-          "closes": "23:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Sunday",
-          "opens": "09:00",
-          "closes": "21:00"
-        }
-      ]
-    }
-    </script>
-    
+
     <style type="text/css">
-        /* Tetap mempertahankan semua style asli Anda */
         .texture-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
         .vignette-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 49; background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(28,23,20,0.7) 100%); }
         .arch-top { border-radius: 40% 40% 0 0 / 20% 20% 0 0; }
@@ -109,12 +61,10 @@
         .drop-cap::first-letter { float: left; font-family: 'Cinzel', serif; font-size: 4.5rem; line-height: 0.8; margin-right: 0.75rem; margin-top: 0.25rem; color: #C9A962; text-shadow: 2px 2px 0px rgba(0,0,0,0.2); }
         .ornate-divider { height: 1px; background: linear-gradient(90deg, transparent 0%, #4A3F35 20%, #C9A962 50%, #4A3F35 80%, transparent 100%); position: relative; margin: 3rem 0; }
         .ornate-divider::after { content: "✶"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: #C9A962; background-color: #0F0E0E; padding: 0 15px; font-size: 1.2rem; }
-        
-        /* Optimasi performa: content-visibility */
         section { content-visibility: auto; contain-intrinsic-size: 1px 500px; }
     </style>
 </head>
-<body class="font-body text-text-primary bg-bg antialiased overflow-x-hidden selection:bg-accent selection:text-bg">
+<body id="home" class="font-body text-text-primary bg-bg antialiased overflow-x-hidden selection:bg-accent selection:text-bg">
 
     <div class="texture-overlay"></div>
     <div class="vignette-overlay"></div>
@@ -122,7 +72,7 @@
     <nav class="fixed w-full z-40 bg-bg/95 backdrop-blur-sm border-b border-border transition-all duration-500">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex items-center justify-between h-24">
-                <div class="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
+                <a href="#home" class="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
                     <div class="relative">
                         <div class="w-10 h-10 rounded-full border border-accent/50 flex items-center justify-center bg-bg-alt group-hover:border-accent transition-colors duration-500">
                             <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,32 +80,32 @@
                             </svg>
                         </div>
                     </div>
-<div>
-    <h1 class="font-display text-xl tracking-widest-xl text-accent uppercase group-hover:text-white transition-colors">Cave Senja</h1>
-    <p class="font-heading text-[10px] text-white/80 tracking-[0.4em] uppercase">Est. MMXXIV</p>
-</div>
-                </div>
+                    <div>
+                        <h1 class="font-display text-xl tracking-widest-xl text-accent uppercase group-hover:text-white transition-colors">Cave Senja</h1>
+                        <p class="font-heading text-[10px] text-white/80 tracking-[0.4em] uppercase">Est. MMXXIV</p>
+                    </div>
+                </a>
                 
                 <div class="hidden md:flex items-center space-x-12">
-                    <a href="index.html" class="relative font-display text-xs tracking-widest text-accent uppercase py-2 group">Beranda</a>
-                    <a href="tentang-kami.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Tentang</a>
-                    <a href="menu.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Menu</a>
-                    <a href="blog.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Blog</a>
-                    <a href="galeri.html" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Gallery</a>
+                    <a href="#home" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Beranda</a>
+                    <a href="#about" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Tentang</a>
+                    <a href="#menu" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Menu</a>
+                    <a href="#blog" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Blog</a>
+                    <a href="#gallery" class="font-display text-xs tracking-widest hover:text-accent transition-colors uppercase py-2">Galeri</a>
                 </div>
 
                 <button onclick="toggleMenu()" class="md:hidden text-accent p-2 hover:bg-white/5 rounded-full transition-colors" aria-label="Toggle Menu">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg id="menu-icon-svg" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full bg-bg-alt/98 backdrop-blur-xl border-b border-accent/20 py-8 px-6 space-y-4 md:hidden shadow-2xl">
-            <a href="index.html" class="block text-center py-4 text-accent font-display text-sm uppercase tracking-widest border border-accent/20 rounded">Beranda</a>
-            <a href="tentang-kami.html" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Tentang</a>
-            <a href="menu.html" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Menu</a>
-            <a href="blog.html" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Blog</a>
-            <a href="galeri.html" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Gallery</a>
+        <div id="mobile-menu" class="hidden absolute top-24 left-0 w-full bg-bg-alt/98 backdrop-blur-xl border-b border-accent/20 py-8 px-6 space-y-4 md:hidden shadow-2xl transition-all duration-300 transform -translate-y-2 opacity-0">
+            <a href="#home" onclick="toggleMenu()" class="block text-center py-4 text-accent font-display text-sm uppercase tracking-widest border border-accent/20 rounded">Beranda</a>
+            <a href="#about" onclick="toggleMenu()" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Tentang</a>
+            <a href="#menu" onclick="toggleMenu()" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Menu</a>
+            <a href="#blog" onclick="toggleMenu()" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Blog</a>
+            <a href="#gallery" onclick="toggleMenu()" class="block text-center py-4 text-text-primary font-display text-sm uppercase tracking-widest hover:bg-white/5 rounded">Galeri</a>
         </div>
     </nav>
 
@@ -176,10 +126,10 @@
                             </span>
                         </h2>
                         <p class="text-lg md:text-xl text-text-secondary leading-relaxed drop-cap text-justify font-light italic">
-                            Di sudut kota yang bising, kami membangun sebuah tempat perlindungan. Bukan sekadar kedai kopi, melainkan sebuah ruang kontemplasi di mana aroma biji kopi pilihan menyatu dengan keheningan literasi dan hangatnya diskusi senja.
+                            Di sudut kota yang bising, kami membangun sebuah tempat perlindungan. Bukan sekadar kedai kopi, melainkan sebuah ruang kontemplasi.
                         </p>
                         <div class="pt-4">
-                            <a href="menu.html" class="group relative inline-flex items-center gap-4 px-10 py-5 bg-brass-gradient text-bg-alt font-display text-xs font-bold tracking-[0.3em] uppercase rounded-[2px] overflow-hidden transition-all hover:pr-14">
+                            <a href="#menu" class="group relative inline-flex items-center gap-4 px-10 py-5 bg-brass-gradient text-bg-alt font-display text-xs font-bold tracking-[0.3em] uppercase rounded-[2px] overflow-hidden transition-all hover:pr-14">
                                 <span class="relative z-10">Jelajahi Menu</span>
                                 <svg class="w-4 h-4 absolute right-6 opacity-0 group-hover:opacity-100 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </a>
@@ -190,428 +140,181 @@
                         <div class="relative w-full max-w-md aspect-[3/4]">
                             <div class="absolute inset-0 border border-accent/30 arch-top translate-x-4 translate-y-4"></div>
                             <div class="absolute inset-0 arch-top overflow-hidden border border-border bg-bg-alt shadow-2xl group">
-                               <img 
-  src="aset/cave.menu/Cave 2.webp"
- 
-  sizes="(max-width: 768px) 90vw, 362px"
-  alt="Cave Senja Coffee"
-  width="362"
-  height="663"
-  fetchpriority="high"
-  decoding="async"
-  class="w-full h-full object-cover sepia-effect"
-/>
-
+                                <img src="aset/cave.menu/Cave 2.webp" class="w-full h-full object-cover sepia-effect" alt="Cave Senja">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="ornate-divider"></div>
-        </div>
+
+        <div class="max-w-4xl mx-auto px-6"><div class="ornate-divider"></div></div>
 
         <section id="about" class="py-16 md:py-20 relative bg-bg-alt/50">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="relative group">
                         <div class="absolute inset-0 border border-accent/20 translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
-                       <img 
-  src="aset/cave.menu/CaveSignatureLatte 2.webp"
-  srcset="
-    aset/cave.menu/CaveSignatureLatte 2.webp 360w,
-    aset/cave.menu/CaveSignatureLatte 2.webp 640w,
-    aset/cave.menu/CaveSignatureLatte 2.webp 800w
-  "
-  sizes="(max-width: 768px) 90vw, 360px"
-  alt="Interior Cave Senja"
-  width="360"
-  height="290"
-  loading="lazy"
-  decoding="async"
-  class="relative z-10 w-full h-auto sepia-effect shadow-2xl border border-border"
-/>
+                       <img src="aset/cave.menu/CaveSignatureLatte 2.webp" class="relative z-10 w-full h-auto sepia-effect shadow-2xl border border-border" alt="Interior">
                     </div>
-                    
                     <div>
                         <span class="font-display text-xs text-accent tracking-[0.3em] uppercase block mb-4">The Philosophy</span>
                         <h2 class="font-heading text-4xl md:text-5xl text-text-primary mb-6">Lebih Dari Sekedar Kopi</h2>
                         <p class="font-body text-text-secondary text-base md:text-lg leading-relaxed mb-6">
-                            Kami percaya bahwa kopi adalah jembatan komunikasi. Bermula dari garasi kecil, kini kami menghadirkan ruang hangat bagi para pencinta kopi, pekerja kreatif, dan sahabat yang ingin berbagi cerita.
+                            Kami percaya bahwa kopi adalah jembatan komunikasi. Bermula dari garasi kecil, kini kami menghadirkan ruang hangat bagi para pencinta kopi.
                         </p>
                         <ul class="space-y-4 mt-8 font-display text-xs tracking-widest text-text-primary">
-                            <li class="flex items-center gap-4">
-                                <span class="h-[1px] w-8 bg-accent"></span> 100% ARABICA ORIGIN
-                            </li>
-                            <li class="flex items-center gap-4">
-                                <span class="h-[1px] w-8 bg-accent"></span> ARTISAN BREWING METHOD
-                            </li>
-                            <li class="flex items-center gap-4">
-                                <span class="h-[1px] w-8 bg-accent"></span> SERENE ATMOSPHERE
-                            </li>
+                            <li class="flex items-center gap-4"><span class="h-[1px] w-8 bg-accent"></span> 100% ARABICA ORIGIN</li>
+                            <li class="flex items-center gap-4"><span class="h-[1px] w-8 bg-accent"></span> ARTISAN BREWING</li>
                         </ul>
-                        
-                        <div class="mt-8">
-                            <a href="tentang-kami.html" class="inline-block px-8 py-3 border border-accent text-accent hover:bg-accent hover:text-bg-alt transition-colors duration-300 font-display text-xs font-bold tracking-[0.2em] uppercase">
-                                Selengkapnya
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="collection" class="py-16 md:py-24 bg-bg relative">
+        <section id="menu" class="py-16 md:py-24 bg-bg relative">
             <div class="max-w-6xl mx-auto px-6">
-                
                 <div class="text-center mb-12 md:mb-20">
                     <span class="font-display text-xs text-accent tracking-[0.3em] uppercase block mb-4">Volume II</span>
                     <h3 class="font-heading text-4xl md:text-5xl text-text-primary mb-6">The Collection</h3>
-                    <p class="font-body text-text-secondary italic max-w-2xl mx-auto px-4">
-                        "Menu andalan yang dikurasi khusus untuk memanjakan lidah Anda."
-                    </p>
+                    <p class="font-body text-text-secondary italic max-w-2xl mx-auto px-4">"Menu andalan yang dikurasi khusus."</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
                     <div class="group card-hover relative bg-bg-alt border border-border p-6 md:p-8 hover:border-accent/50 transition-colors duration-500">
-                        <div class="corner-flourish flourish-tl"></div>
-                        <div class="corner-flourish flourish-tr"></div>
-                        <div class="corner-flourish flourish-bl"></div>
-                        <div class="corner-flourish flourish-br"></div>
-
                         <div class="relative z-10 text-center">
                             <div class="w-full aspect-[4/3] mb-6 overflow-hidden border border-border">
-                                <img src="aset/cave.menu/SignatureLatte (1).webp" 
-                                     width="800" height="600" loading="lazy" decoding="async"
-                                     class="w-full h-full object-cover sepia-effect" alt="Latte Art">
+                                <img src="aset/cave.menu/SignatureLatte (1).webp" class="w-full h-full object-cover sepia-effect" alt="Latte">
                             </div>
-                            <h4 class="font-heading text-2xl md:text-3xl text-text-primary mb-2">Signature Latte</h4>
-                            <div class="w-12 h-[1px] bg-accent mx-auto my-3"></div>
-                            <p class="text-text-secondary text-sm mb-4 font-body leading-relaxed">
-                                Espresso blend house kami dipadukan dengan susu segar yang dikukus sempurna.
-                            </p>
+                            <h4 class="font-heading text-2xl text-text-primary mb-2">Signature Latte</h4>
                             <span class="font-display text-accent text-lg tracking-widest">IDR 35K</span>
                         </div>
                     </div>
-
-                    <div class="group card-hover relative bg-bg-alt border border-accent/40 p-6 md:p-8 hover:border-accent transition-colors duration-500 transform md:-translate-y-4 shadow-glow my-4 md:my-0">
+                    <div class="group card-hover relative bg-bg-alt border border-accent/40 p-6 md:p-8 hover:border-accent transition-colors duration-500 shadow-glow">
                         <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-bg px-4 py-1 border border-accent z-20">
-                            <span class="font-display text-[10px] text-accent tracking-[0.2em] uppercase whitespace-nowrap">Chef's Choice</span>
+                            <span class="font-display text-[10px] text-accent tracking-[0.2em] uppercase">Favorite</span>
                         </div>
-                        
-                        <div class="corner-flourish flourish-tl border-accent"></div>
-                        <div class="corner-flourish flourish-tr border-accent"></div>
-                        <div class="corner-flourish flourish-bl border-accent"></div>
-                        <div class="corner-flourish flourish-br border-accent"></div>
-
                         <div class="relative z-10 text-center">
                             <div class="w-full aspect-[4/3] mb-6 overflow-hidden border border-accent/30">
-                                <img src="aset/cave.menu/TruffleCarbonara (1).webp" 
-                                     width="800" height="600" loading="lazy" decoding="async"
-                                     class="w-full h-full object-cover sepia-effect" alt="Truffle Carbonara">
+                                <img src="aset/cave.menu/TruffleCarbonara (1).webp" class="w-full h-full object-cover sepia-effect" alt="Carbonara">
                             </div>
-                            <h4 class="font-heading text-2xl md:text-3xl text-text-primary mb-2">Truffle Carbonara</h4>
-                            <div class="w-12 h-[1px] bg-accent mx-auto my-3"></div>
-                            <p class="text-text-secondary text-sm mb-4 font-body leading-relaxed">
-                                Spaghetti creamy dengan saus carbonara autentik, daging asap, dan minyak truffle.
-                            </p>
+                            <h4 class="font-heading text-2xl text-text-primary mb-2">Truffle Carbonara</h4>
                             <span class="font-display text-accent text-lg tracking-widest">IDR 65K</span>
                         </div>
                     </div>
-
                     <div class="group card-hover relative bg-bg-alt border border-border p-6 md:p-8 hover:border-accent/50 transition-colors duration-500">
-                        <div class="corner-flourish flourish-tl"></div>
-                        <div class="corner-flourish flourish-tr"></div>
-                        <div class="corner-flourish flourish-bl"></div>
-                        <div class="corner-flourish flourish-br"></div>
-
                         <div class="relative z-10 text-center">
                             <div class="w-full aspect-[4/3] mb-6 overflow-hidden border border-border">
-                                <img src="aset/cave.menu/AlmondCroissant.webp" 
-                                     width="800" height="600" loading="lazy" decoding="async"
-                                     class="w-full h-full object-cover sepia-effect" alt="Almond Croissant">
+                                <img src="aset/cave.menu/AlmondCroissant.webp" class="w-full h-full object-cover sepia-effect" alt="Croissant">
                             </div>
-                            <h4 class="font-heading text-2xl md:text-3xl text-text-primary mb-2">Almond Croissant</h4>
-                            <div class="w-12 h-[1px] bg-accent mx-auto my-3"></div>
-                            <p class="text-text-secondary text-sm mb-4 font-body leading-relaxed">
-                                Pastry renyah berlapis mentega Prancis dengan isian pasta almond manis.
-                            </p>
+                            <h4 class="font-heading text-2xl text-text-primary mb-2">Almond Croissant</h4>
                             <span class="font-display text-accent text-lg tracking-widest">IDR 28K</span>
                         </div>
                     </div>
-
-                </div>
-
-                <div class="text-center mt-12">
-                    <a href="menu.html" class="inline-block px-10 py-3 bg-brass-gradient text-bg-alt font-display text-xs font-bold tracking-[0.2em] uppercase shadow-engraved hover:brightness-110 transition-all rounded-[2px]">
-                        Lihat Menu Lengkap
-                    </a>
                 </div>
             </div>
         </section>
 
-        <section id="gallery" class="py-16 md:py-20 bg-bg-alt relative border-t border-border">
+        <section id="blog" class="py-16 md:py-24 bg-bg-alt relative border-t border-border">
+            <div class="max-w-6xl mx-auto px-6 text-center">
+                <span class="font-display text-xs text-accent tracking-[0.3em] uppercase block mb-4">Jurnal & Cerita</span>
+                <h3 class="font-heading text-4xl md:text-5xl text-text-primary mb-6">Catatan Barista</h3>
+                <p class="font-body text-text-secondary mb-12 max-w-2xl mx-auto">"Menyelami cerita di balik setiap seduhan dan biji kopi pilihan."</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <article class="border border-border p-6 hover:border-accent transition-colors cursor-pointer">
+                        <span class="text-accent text-xs tracking-widest uppercase">12 Jan 2024</span>
+                        <h4 class="font-heading text-2xl text-text-primary mt-2 mb-3">Mengenal Notes Arabica Gayo</h4>
+                        <p class="font-body text-text-muted text-sm">Eksplorasi rasa fruity dan body tebal dari dataran tinggi Aceh...</p>
+                    </article>
+                    <article class="border border-border p-6 hover:border-accent transition-colors cursor-pointer">
+                        <span class="text-accent text-xs tracking-widest uppercase">05 Jan 2024</span>
+                        <h4 class="font-heading text-2xl text-text-primary mt-2 mb-3">Seni Pour Over V60</h4>
+                        <p class="font-body text-text-muted text-sm">Teknik manual brew yang menonjolkan kejernihan rasa kopi...</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-16 md:py-20 bg-bg relative border-t border-border">
             <div class="max-w-7xl mx-auto px-6">
                 <h2 class="font-heading text-3xl md:text-4xl text-center text-text-primary mb-8 md:mb-12">Galeri Momen</h2>
-                
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[150px] md:auto-rows-[200px]">
                     <div class="col-span-2 row-span-2 relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/CaveSignatureLatte 2.webp" width="800" height="800" alt="Coffee Pour Process" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
-                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                            <span class="font-display text-accent tracking-widest uppercase text-sm">The Process</span>
-                        </div>
-                    </div>
-                    
-                    <div class="relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/cafe.tentangkami.webp" width="400" height="400" alt="Cafe Vibes" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                        <img src="aset/cave.menu/CaveSignatureLatte 2.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
                     </div>
                     <div class="relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/ChocoWalnutCookie.webp" width="400" height="400" alt="Coffee Beans" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                        <img src="aset/cave.menu/cafe.tentangkami.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
                     </div>
                     <div class="relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/EksplorasiRasa.webp" width="400" height="400" alt="Espresso Shot" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                        <img src="aset/cave.menu/ChocoWalnutCookie.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
                     </div>
                     <div class="relative group overflow-hidden border border-border">
-                        <img src="aset/cave.menu/StandarKebersihan.webp" width="400" height="400" alt="Social Coffee" loading="lazy" decoding="async" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                        <img src="aset/cave.menu/EksplorasiRasa.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
                     </div>
-                </div>
-
-                <div class="text-center mt-8 md:mt-10">
-                    <a href="galeri.html" class="inline-block px-8 py-3 border border-border text-text-primary hover:border-accent hover:text-accent transition-colors duration-300 font-display text-xs font-bold tracking-[0.2em] uppercase">
-                        Lihat Galeri Penuh
-                    </a>
+                    <div class="relative group overflow-hidden border border-border">
+                        <img src="aset/cave.menu/StandarKebersihan.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 sepia-effect group-hover:filter-none">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="py-16 md:py-24 bg-bg relative">
+        <section id="faq" class="py-16 md:py-24 bg-bg-alt relative">
             <div class="max-w-3xl mx-auto px-6">
-                <div class="text-center mb-10 md:mb-12">
-                    <span class="font-display text-xs text-accent tracking-[0.3em] uppercase block mb-4">Informasi</span>
-                    <h2 class="font-heading text-3xl md:text-4xl text-text-primary">Jam Operasional & Layanan</h2>
+                <div class="text-center mb-10">
+                    <h2 class="font-heading text-3xl md:text-4xl text-text-primary">Jam Operasional</h2>
                 </div>
-                
-                <div class="space-y-4">
-                    <div class="border border-border bg-bg-alt hover:border-accent/50 transition-colors">
-                        <button class="w-full flex justify-between items-center p-5 md:p-6 text-left font-display text-sm tracking-wide text-text-primary focus:outline-none" onclick="toggleAccordion(1)" aria-label="Toggle JAM BERAPA KEDAI MULAI BUKA?">
-                            <span class="pr-4">JAM BERAPA KEDAI MULAI BUKA?</span>
-                            <svg id="icon-1" class="w-3 h-3 text-accent transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </button>
-                        <div id="content-1" class="hidden p-5 md:p-6 pt-0 text-text-secondary font-body border-t border-border/50 text-sm md:text-base">
-                            <ul class="mt-4 space-y-2">
-                                <li><span class="text-accent">Senin - Kamis:</span> 08:00 - 22:00</li>
-                                <li><span class="text-accent">Jumat - Sabtu:</span> 08:00 - 23:00</li>
-                                <li><span class="text-accent">Minggu:</span> 07:00 - 21:00</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="border border-border bg-bg-alt hover:border-accent/50 transition-colors">
-                        <button class="w-full flex justify-between items-center p-5 md:p-6 text-left font-display text-sm tracking-wide text-text-primary focus:outline-none" onclick="toggleAccordion(2)" aria-label="Toggle APAKAH BUKA SAAT LIBUR NASIONAL?">
-                            <span class="pr-4">APAKAH BUKA SAAT LIBUR NASIONAL?</span>
-                            <svg id="icon-2" class="w-3 h-3 text-accent transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </button>
-                        <div id="content-2" class="hidden p-5 md:p-6 pt-0 text-text-secondary font-body border-t border-border/50 text-sm md:text-base">
-                            <p class="mt-4">Kami tetap buka di sebagian besar hari libur nasional. Info khusus akan selalu kami umumkan via media sosial.</p>
-                        </div>
-                    </div>
-
-                    <div class="border border-border bg-bg-alt hover:border-accent/50 transition-colors">
-                        <button class="w-full flex justify-between items-center p-5 md:p-6 text-left font-display text-sm tracking-wide text-text-primary focus:outline-none" onclick="toggleAccordion(3)" aria-label="Toggle BATAS WAKTU LAST ORDER?">
-                            <span class="pr-4">BATAS WAKTU LAST ORDER?</span>
-                            <svg id="icon-3" class="w-3 h-3 text-accent transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </button>
-                        <div id="content-3" class="hidden p-5 md:p-6 pt-0 text-text-secondary font-body border-t border-border/50 text-sm md:text-base">
-                            <p class="mt-4">Makanan berat: 30 menit sebelum tutup. Minuman: 15 menit sebelum tutup.</p>
-                        </div>
-                    </div>
+                <div class="border border-border p-8 text-center space-y-4">
+                    <p class="text-text-primary"><strong class="text-accent">Senin - Kamis:</strong> 08:00 - 22:00</p>
+                    <p class="text-text-primary"><strong class="text-accent">Jumat - Sabtu:</strong> 08:00 - 23:00</p>
+                    <p class="text-text-primary"><strong class="text-accent">Minggu:</strong> 09:00 - 21:00</p>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 border-t border-b border-accent/20 bg-bg-alt relative overflow-hidden">
-            <div class="absolute inset-0 bg-brass-gradient opacity-5"></div>
-            <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-                <h2 class="font-heading text-4xl md:text-5xl text-text-primary mb-6">Siap Mencicipi Kopi Terbaik?</h2>
-                <p class="font-body text-lg md:text-xl text-text-secondary mb-10 italic">"Pesan sekarang atau kunjungi ruang baca kami."</p>
-                
-                <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-                    <a href="https://wa.me/6281234567890" class="px-8 py-3 bg-accent text-bg font-display text-xs font-bold tracking-widest uppercase hover:bg-white transition-colors flex items-center justify-center gap-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.591 1.974.969 3.03.969 3.412 0 6.188-2.581 6.189-5.766.001-3.186-2.557-5.766-5.766-5.766zm-3.151 7.922c-.148.249-.249.373-.349.398-.099.025-.596.149-1.29-.547-.694-.695-.572-1.192-.472-1.391.099-.199.199-.372.497-.745.298-.373.248-.596.149-.795-.099-.198-.596-1.589-.794-2.135-.199-.547-.397-.472-.546-.472-.149 0-.447 0-.745.298-.298.298-1.042.992-1.042 2.383 0 1.391 1.092 2.808 1.34 3.106.248.298 2.183 3.056 5.061 4.198 2.879 1.143 2.879.77 3.425.695.546-.075 1.737-.696 1.985-1.391.248-.695.248-1.291.174-1.391-.074-.099-.273-.149-.571-.298-.298-.149-1.738-.844-2.011-.943-.273-.099-.472-.149-.67.149-.199.298-.769.943-.943 1.142-.174.199-.348.224-.646.075z"/></svg>
-                        Pesan via WhatsApp
-                    </a>
-                    <a href="https://maps.google.com" class="px-8 py-3 border border-accent text-accent font-display text-xs font-bold tracking-widest uppercase hover:bg-accent hover:text-bg transition-colors">
-                        Lokasi Kami
-                    </a>
+        <footer class="bg-bg border-t border-border mt-10 md:mt-20 relative pt-16 pb-8">
+            <div class="max-w-6xl mx-auto px-6 text-center">
+                <h2 class="font-display text-2xl tracking-widest text-accent uppercase mb-4">Cave Senja</h2>
+                <p class="font-body text-text-secondary mb-8">Jalan Kopi No. 10, Jakarta Selatan</p>
+                <div class="text-xs text-text-muted">
+                    <p>© 2024 Cave Senja. All Rights Reserved.</p>
                 </div>
             </div>
-        </section>
-
-<footer class="bg-bg-alt border-t border-border mt-10 md:mt-20 relative overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
-
-    <div class="max-w-6xl mx-auto px-6 pt-16 pb-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
-            
-            <div class="space-y-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full border border-accent flex items-center justify-center bg-bg">
-                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-                    </div>
-                    <div>
-                        <h2 class="font-display text-lg tracking-widest text-accent uppercase">Cave Senja</h2>
-                        <p class="font-heading text-xs text-text-muted tracking-widest uppercase">The Scholar's Archive</p>
-                    </div>
-                </div>
-                <p class="font-body text-text-secondary text-sm leading-relaxed italic">
-                    "Ruang kontemplasi di mana aroma kopi artisan bertemu dengan ketenangan perpustakaan klasik."
-                </p>
-                <div class="flex gap-4 pt-2">
-                    <a href="#" aria-label="Instagram" class="w-8 h-8 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-accent hover:border-accent transition-all duration-300">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="#" aria-label="Twitter" class="w-8 h-8 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-accent hover:border-accent transition-all duration-300">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                    </a>
-                    <a href="#" aria-label="WhatsApp" class="w-8 h-8 flex items-center justify-center border border-border rounded-sm text-text-muted hover:text-accent hover:border-accent transition-all duration-300">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                    </a>
-                </div>
-            </div>
-
-            <div>
-                <h3 class="font-display text-accent text-sm tracking-widest uppercase mb-6 border-b border-border pb-2 inline-block">Eksplorasi</h3>
-                <ul class="space-y-3 font-heading text-text-primary/80">
-                    <li><a href="index.html" class="hover:text-accent hover:pl-2 transition-all duration-300 flex items-center gap-2"><span class="text-[10px] opacity-50">✦</span> Beranda</a></li>
-                    <li><a href="menu.html" class="hover:text-accent hover:pl-2 transition-all duration-300 flex items-center gap-2"><span class="text-[10px] opacity-50">✦</span> Menu Koleksi</a></li>
-                    <li><a href="tentang-kami.html" class="hover:text-accent hover:pl-2 transition-all duration-300 flex items-center gap-2"><span class="text-[10px] opacity-50">✦</span> Tentang Kami</a></li>
-                    <li><a href="blog.html" class="hover:text-accent hover:pl-2 transition-all duration-300 flex items-center gap-2"><span class="text-[10px] opacity-50">✦</span> Jurnal & Blog</a></li>
-                    <li><a href="galeri.html" class="hover:text-accent hover:pl-2 transition-all duration-300 flex items-center gap-2"><span class="text-[10px] opacity-50">✦</span> Galeri Arsip</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="font-display text-accent text-sm tracking-widest uppercase mb-6 border-b border-border pb-2 inline-block">Lokasi Arsip</h3>
-                <ul class="space-y-4 font-body text-text-secondary text-sm">
-                    <li class="flex items-start gap-3">
-                        <svg class="w-4 h-4 mt-1 text-accent/70" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
-                        <span>Jalan Kopi No. 10,<br>Jakarta Selatan, DKI Jakarta</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <svg class="w-4 h-4 text-accent/70" fill="currentColor" viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"/></svg>
-                        <a href="https://wa.me/6281234567890" class="hover:text-accent transition-colors">+62 812 3456 7890</a>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <svg class="w-4 h-4 text-accent/70" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z"/></svg>
-                        <a href="mailto:halo@cavesenja.com" class="hover:text-accent transition-colors">halo@cavesenja.com</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="font-display text-accent text-sm tracking-widest uppercase mb-6 border-b border-border pb-2 inline-block">Jam Operasional</h3>
-                <ul class="space-y-3 font-heading text-text-primary/80">
-                    <li class="flex justify-between border-b border-border/50 pb-2 border-dashed">
-                        <span>Senin - Kamis</span>
-                        <span class="text-accent">08:00 - 22:00</span>
-                    </li>
-                    <li class="flex justify-between border-b border-border/50 pb-2 border-dashed">
-                        <span>Jumat - Sabtu</span>
-                        <span class="text-accent">08:00 - 23:00</span>
-                    </li>
-                    <li class="flex justify-between">
-                        <span>Minggu</span>
-                        <span class="text-accent">09:00 - 21:00</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="border-t border-border pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-body text-text-muted text-center md:text-left">
-            <p>© 2024 Cave Senja. All Rights Reserved.</p>
-
-            <p class="font-display tracking-widest opacity-50 mt-2 md:mt-0">EST. MMXXIV</p>
-        </div>
-    </div>
-</footer>
-
+        </footer>
     </main>
 
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 rounded-full border border-accent bg-bg flex items-center justify-center text-accent hover:bg-accent hover:text-bg transition-all duration-300 shadow-lg group" aria-label="Back to Top">
-            <svg class="w-5 h-5 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
-        </button>
-        <a href="https://wa.me/6281234567890" target="_blank" class="w-12 h-12 rounded-full border border-[#25D366] bg-bg flex items-center justify-center text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-300 shadow-lg" aria-label="Chat Whatsapp">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-        </a>
-    </div>
-
     <script>
-        // Optimized Toggle Mobile Menu
+        // Toggle Mobile Menu
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
             const iconSvg = document.getElementById('menu-icon-svg');
             
             if (menu.classList.contains('hidden')) {
-                // Open
                 menu.classList.remove('hidden');
                 setTimeout(() => {
                     menu.classList.remove('opacity-0', '-translate-y-2');
                     menu.classList.add('opacity-100', 'translate-y-0');
                 }, 10);
-                // Switch to X icon
+                // Icon X
                 iconSvg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
             } else {
-                // Close
                 menu.classList.remove('opacity-100', 'translate-y-0');
                 menu.classList.add('opacity-0', '-translate-y-2');
-                // Switch to Hamburger
+                // Icon Burger
                 iconSvg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-                
-                setTimeout(() => {
-                    menu.classList.add('hidden');
-                }, 300);
+                setTimeout(() => { menu.classList.add('hidden'); }, 300);
             }
         }
 
-        // Accordion Logic
-        function toggleAccordion(id) {
-            const content = document.getElementById(`content-${id}`);
-            const icon = document.getElementById(`icon-${id}`);
-            
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                // Switch to Minus
-                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>';
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-bg', 'shadow-lg');
+                nav.classList.remove('bg-bg/95');
             } else {
-                content.classList.add('hidden');
-                // Switch to Plus
-                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>';
-            }
-        }
-
-        // Navbar Scroll with Throttling
-        let lastKnownScrollPosition = 0;
-        let ticking = false;
-
-        window.addEventListener('scroll', function(e) {
-            lastKnownScrollPosition = window.scrollY;
-
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    const nav = document.querySelector('nav');
-                    if (lastKnownScrollPosition > 50) {
-                        nav.classList.add('bg-bg', 'shadow-lg');
-                        nav.classList.remove('bg-bg/95');
-                    } else {
-                        nav.classList.remove('bg-bg', 'shadow-lg');
-                        nav.classList.add('bg-bg/95');
-                    }
-                    ticking = false;
-                });
-                ticking = true;
+                nav.classList.remove('bg-bg', 'shadow-lg');
+                nav.classList.add('bg-bg/95');
             }
         });
     </script>
